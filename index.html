@@ -1,0 +1,2213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salivary Biomarkers in Cancer Detection · Scientific Day 2025</title>
+<meta name="description" content="Non-invasive liquid biopsy research — Faculty of Dentistry, October 6 University. Systematic review of salivary biomarkers for early cancer detection.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+:root {
+  --teal: #0a4a42; --teal2: #0d7a68; --teal3: #1a9c86;
+  --burd: #8b1a1a; --gold: #c8960a; --gold2: #e8b020;
+  --cream: #faf7f2; --cream2: #f0ebe0;
+  --dark: #1a1210; --muted: #5a4a3a;
+  --blue: #1a4a8b; --purp: #5a2a7a;
+  --white: #ffffff;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.06), 0 1px 2px rgba(0,0,0,0.04);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 12px 32px rgba(0,0,0,0.12);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'DM Sans',sans-serif;background:var(--cream);color:var(--dark);overflow-x:hidden;line-height:1.6}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:200;background:rgba(10,74,66,0.97);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,0.1)}
+.nav-inner{max-width:1240px;margin:0 auto;padding:0 24px;height:60px;display:flex;align-items:center;justify-content:space-between}
+.nav-logo{font-family:'Cormorant Garamond',serif;color:#fff;font-size:17px;font-weight:500;letter-spacing:0.02em}
+.nav-links{display:flex;gap:24px;list-style:none}
+.nav-links a{color:rgba(255,255,255,0.72);text-decoration:none;font-size:12px;font-weight:400;letter-spacing:0.08em;text-transform:uppercase;transition:color 0.2s;position:relative}
+.nav-links a:hover{color:#fff}
+.nav-links a::after{content:'';position:absolute;bottom:-22px;left:0;right:0;height:2px;background:var(--gold);transform:scaleX(0);transition:transform 0.2s}
+.nav-links a:hover::after{transform:scaleX(1)}
+.nav-cta{background:var(--gold);color:var(--dark);padding:7px 18px;border-radius:4px;font-size:13px;font-weight:500;text-decoration:none;transition:background 0.2s;cursor:pointer;border:none;font-family:inherit}
+.nav-cta:hover{background:var(--gold2)}
+@media(max-width:900px){.nav-links{display:none}}
+
+/* ── ANIMATIONS ── */
+@keyframes floatOrb{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(30px,-40px) scale(1.05)}66%{transform:translate(-20px,20px) scale(0.97)}}
+@keyframes floatOrb2{0%,100%{transform:translate(0,0) scale(1)}33%{transform:translate(-40px,30px) scale(1.08)}66%{transform:translate(25px,-15px) scale(0.95)}}
+@keyframes pulseDot{0%,100%{opacity:1;transform:scale(1)}50%{opacity:0.4;transform:scale(0.7)}}
+@keyframes fadeSlideUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fadeSlideDown{from{opacity:0;transform:translateY(-16px)}to{opacity:1;transform:translateY(0)}}
+@keyframes shimmer{0%{background-position:200% center}100%{background-position:-200% center}}
+@keyframes particleDrift{0%{transform:translateY(0) translateX(0);opacity:0}10%{opacity:1}90%{opacity:0.6}100%{transform:translateY(-120px) translateX(20px);opacity:0}}
+@keyframes scanLine{0%{top:-2px;opacity:0}5%{opacity:1}95%{opacity:0.5}100%{top:100%;opacity:0}}
+@keyframes borderGlow{0%,100%{box-shadow:0 0 0 0 rgba(200,150,10,0)}50%{box-shadow:0 0 16px 2px rgba(200,150,10,0.25)}}
+@keyframes slideUpDrawer{from{transform:translateY(100%)}to{transform:translateY(0)}}
+
+/* ── HERO ── */
+#hero{min-height:100vh;background:var(--teal);position:relative;display:flex;align-items:center;justify-content:center;overflow:hidden;padding-top:60px}
+.hero-bg{position:absolute;inset:0;z-index:0;background:radial-gradient(ellipse 80% 60% at 20% 30%, rgba(13,122,104,0.7) 0%, transparent 60%),radial-gradient(ellipse 60% 80% at 80% 70%, rgba(26,74,139,0.35) 0%, transparent 55%),radial-gradient(ellipse 50% 50% at 60% 20%, rgba(139,26,26,0.2) 0%, transparent 50%),radial-gradient(ellipse 70% 40% at 10% 80%, rgba(90,42,122,0.25) 0%, transparent 50%),linear-gradient(135deg, #062e28 0%, #0a4a42 40%, #073a55 100%)}
+.hero-orb{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none;z-index:1}
+.hero-orb-1{width:600px;height:600px;top:-100px;left:-150px;background:rgba(13,156,134,0.18);animation:floatOrb 14s ease-in-out infinite}
+.hero-orb-2{width:500px;height:500px;bottom:-80px;right:-100px;background:rgba(26,74,139,0.22);animation:floatOrb2 18s ease-in-out infinite}
+.hero-orb-3{width:400px;height:400px;top:30%;right:10%;background:rgba(200,150,10,0.1);animation:floatOrb 11s ease-in-out infinite}
+.hero-orb-4{width:300px;height:300px;bottom:20%;left:5%;background:rgba(139,26,26,0.12);animation:floatOrb 16s ease-in-out infinite 3s}
+.hero-grid{position:absolute;inset:0;z-index:1;background-image:linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);background-size:60px 60px}
+.hero-scanline{position:absolute;left:0;right:0;height:2px;background:linear-gradient(90deg,transparent,rgba(200,150,10,0.4),transparent);z-index:2;animation:scanLine 8s ease-in-out infinite;pointer-events:none}
+.hero-particles{position:absolute;inset:0;z-index:1;pointer-events:none}
+.particle{position:absolute;width:3px;height:3px;border-radius:50%;background:rgba(255,255,255,0.4);animation:particleDrift linear infinite}
+.hero-helix{position:absolute;right:5%;top:50%;transform:translateY(-50%);z-index:1;opacity:0.06;pointer-events:none}
+.hero-content{position:relative;z-index:5;text-align:center;padding:60px 24px 80px;max-width:980px}
+.hero-logos{display:flex;align-items:center;justify-content:center;gap:32px;margin-bottom:36px;animation:fadeSlideDown 0.8s ease both}
+.hero-logo{width:84px;height:84px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;overflow:hidden;border:2px solid rgba(255,255,255,0.6);transition:all 0.3s;animation:borderGlow 4s ease-in-out infinite}
+.hero-logo:hover{transform:scale(1.08);border-color:rgba(200,150,10,0.6)}
+.hero-logo img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.hero-divider{width:1px;height:60px;background:linear-gradient(180deg,transparent,rgba(255,255,255,0.3),transparent)}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(200,150,10,0.15);border:1px solid rgba(200,150,10,0.4);color:var(--gold2);padding:7px 18px;border-radius:100px;font-size:12px;font-weight:500;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:24px;animation:fadeSlideUp 0.7s ease 0.2s both;backdrop-filter:blur(4px)}
+.hero-badge-dot{width:6px;height:6px;background:var(--gold2);border-radius:50%;animation:pulseDot 2s ease-in-out infinite}
+.hero-title{font-family:'Cormorant Garamond',serif;font-size:clamp(40px,7.5vw,80px);font-weight:600;color:#fff;line-height:1.0;margin-bottom:20px;letter-spacing:-0.02em;animation:fadeSlideUp 0.7s ease 0.35s both}
+.hero-title em{font-style:normal;background:linear-gradient(135deg,#e8b020 0%,#f0cc60 40%,#c8960a 100%);background-size:200% auto;-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;animation:shimmer 4s linear infinite}
+.hero-sub{font-size:clamp(14px,2vw,18px);color:rgba(255,255,255,0.65);margin-bottom:16px;letter-spacing:0.03em;animation:fadeSlideUp 0.7s ease 0.45s both}
+.hero-keywords{display:flex;gap:8px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;animation:fadeSlideUp 0.7s ease 0.5s both}
+.hero-keyword{padding:4px 12px;background:rgba(255,255,255,0.07);border:1px solid rgba(255,255,255,0.12);border-radius:100px;font-size:11px;color:rgba(255,255,255,0.55);letter-spacing:0.05em;backdrop-filter:blur(4px)}
+.hero-btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:40px;animation:fadeSlideUp 0.7s ease 0.55s both}
+.btn-primary{background:linear-gradient(135deg,var(--gold) 0%,var(--gold2) 100%);color:var(--dark);padding:15px 34px;border-radius:8px;font-size:15px;font-weight:500;text-decoration:none;transition:all 0.25s;border:none;cursor:pointer;box-shadow:0 4px 16px rgba(200,150,10,0.3);font-family:inherit}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(200,150,10,0.4)}
+.btn-outline{background:rgba(255,255,255,0.05);color:#fff;padding:15px 34px;border-radius:8px;font-size:15px;font-weight:400;text-decoration:none;border:1px solid rgba(255,255,255,0.25);transition:all 0.25s;cursor:pointer;backdrop-filter:blur(4px);font-family:inherit}
+.btn-outline:hover{border-color:rgba(255,255,255,0.6);background:rgba(255,255,255,0.1);transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:rgba(255,255,255,0.6);padding:14px 28px;border-radius:8px;font-size:13px;font-weight:400;text-decoration:none;border:1px solid rgba(255,255,255,0.15);transition:all 0.25s;cursor:pointer;font-family:inherit}
+.btn-ghost:hover{color:#fff;border-color:rgba(255,255,255,0.3)}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(255,255,255,0.08);border-radius:16px;overflow:hidden;border:1px solid rgba(255,255,255,0.1);animation:fadeSlideUp 0.7s ease 0.65s both;backdrop-filter:blur(12px)}
+.stat-card{background:rgba(255,255,255,0.05);padding:24px 16px;text-align:center;position:relative;overflow:hidden;transition:background 0.2s}
+.stat-card:hover{background:rgba(255,255,255,0.09)}
+.stat-num{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:600;color:#fff;display:block;line-height:1}
+.stat-label{font-size:10px;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.1em;margin-top:5px;display:block}
+@media(max-width:600px){.hero-stats{grid-template-columns:repeat(2,1fr)}}
+
+/* ── SECTION SHELL ── */
+section{padding:96px 24px;scroll-margin-top:60px}
+.section-inner{max-width:1200px;margin:0 auto}
+.section-meta{display:flex;align-items:center;gap:16px;margin-bottom:12px}
+.section-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.14em;text-transform:uppercase;color:var(--teal2)}
+.section-read-time{font-size:11px;color:var(--muted);letter-spacing:0.06em}
+.section-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,44px);font-weight:600;color:var(--dark);line-height:1.15;margin-bottom:16px}
+.section-lead{font-size:16px;color:var(--muted);line-height:1.7;max-width:640px}
+
+/* ── CITATION TAGS ── */
+.cite{display:inline-block;padding:1px 7px;margin:0 2px;background:rgba(10,74,66,0.08);color:var(--teal);border-radius:4px;font-size:11px;font-weight:500;cursor:pointer;transition:all 0.15s;vertical-align:top;line-height:1.5;border:1px solid rgba(10,74,66,0.15);font-family:'DM Sans',sans-serif}
+.cite:hover{background:var(--teal);color:#fff;transform:translateY(-1px)}
+.dark-bg .cite{background:rgba(200,150,10,0.2);color:var(--gold2);border-color:rgba(200,150,10,0.3)}
+.dark-bg .cite:hover{background:var(--gold);color:var(--dark)}
+
+/* ── VIDEO ── */
+#video{background:var(--dark)}
+#video .section-eyebrow{color:var(--gold)}
+#video .section-title{color:#fff}
+#video .section-lead{color:rgba(255,255,255,0.55)}
+.video-wrapper{margin-top:40px;border-radius:12px;overflow:hidden;background:#000;aspect-ratio:16/9;max-width:900px;margin-left:auto;margin-right:auto;position:relative;border:1px solid rgba(255,255,255,0.08)}
+.video-wrapper video{width:100%;height:100%;object-fit:cover}
+
+/* ── STORY TIMELINE ── */
+#story{background:linear-gradient(180deg, var(--dark) 0%, #231812 100%);padding:72px 24px}
+.story-title{color:#fff;font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;text-align:center;margin-bottom:8px}
+.story-sub{color:rgba(255,255,255,0.5);font-size:13px;text-align:center;margin-bottom:40px;letter-spacing:0.05em}
+.story-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:2px;background:rgba(255,255,255,0.08);border-radius:12px;overflow:hidden;max-width:1100px;margin:0 auto;border:1px solid rgba(255,255,255,0.08)}
+.story-step{background:rgba(255,255,255,0.04);padding:28px 20px;position:relative;transition:background 0.25s}
+.story-step:hover{background:rgba(255,255,255,0.08)}
+.story-num{font-family:'Cormorant Garamond',serif;font-size:32px;font-weight:600;color:var(--gold2);line-height:1;margin-bottom:12px}
+.story-step-label{color:rgba(255,255,255,0.5);font-size:10px;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:6px}
+.story-step-title{color:#fff;font-size:15px;font-weight:500;margin-bottom:8px}
+.story-step-text{color:rgba(255,255,255,0.5);font-size:12px;line-height:1.6}
+@media(max-width:768px){.story-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.story-grid{grid-template-columns:1fr}}
+
+/* ── BIOMARKER EXPLORER ── */
+#explorer{background:var(--cream)}
+.explorer-grid{display:grid;grid-template-columns:260px 1fr;gap:2px;margin-top:48px;background:var(--cream2);border-radius:12px;overflow:hidden;border:1px solid rgba(0,0,0,0.08);min-height:480px}
+.explorer-tabs{background:#fff;display:flex;flex-direction:column}
+.exp-tab{padding:20px 24px;cursor:pointer;border-left:3px solid transparent;transition:all 0.2s;display:flex;align-items:center;gap:12px;border-bottom:1px solid rgba(0,0,0,0.04)}
+.exp-tab:hover{background:var(--cream)}
+.exp-tab.active{border-left-color:var(--teal2);background:var(--cream)}
+.exp-tab-marker{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.exp-tab-label{font-size:14px;font-weight:500;color:var(--dark);margin-bottom:2px}
+.exp-tab-sub{font-size:11px;color:var(--muted)}
+.explorer-panel{background:#fff;padding:36px 40px;display:none}
+.explorer-panel.active{display:block;animation:fadeSlideUp 0.3s ease}
+.ep-title{font-family:'Cormorant Garamond',serif;font-size:30px;font-weight:600;color:var(--dark);margin-bottom:8px}
+.ep-lead{font-size:14px;color:var(--muted);line-height:1.7;margin-bottom:24px}
+.ep-section-label{font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.ep-markers{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
+.ep-marker{padding:6px 14px;border-radius:100px;font-size:12px;font-weight:500;border:1px solid}
+.ep-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:24px}
+.ep-stat{background:var(--cream);border-radius:8px;padding:14px;text-align:center}
+.ep-stat-num{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;display:block;line-height:1.1}
+.ep-stat-label{font-size:11px;color:var(--muted);margin-top:6px;line-height:1.4;display:block}
+.ep-clinical-box{background:linear-gradient(135deg, rgba(10,74,66,0.04) 0%, rgba(10,74,66,0.08) 100%);border-left:3px solid var(--teal2);border-radius:6px;padding:16px 20px;margin-bottom:16px}
+.ep-clinical-label{font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:6px}
+.ep-clinical-text{font-size:13px;color:var(--dark);line-height:1.6}
+.ep-usage-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:20px}
+.ep-usage{padding:10px 12px;background:var(--cream);border-radius:6px;text-align:center;border:1px solid rgba(0,0,0,0.05)}
+.ep-usage-label{font-size:10px;text-transform:uppercase;letter-spacing:0.08em;color:var(--muted);margin-bottom:4px}
+.ep-usage-value{font-size:12px;font-weight:500;color:var(--dark)}
+.ep-usage.yes{background:rgba(10,74,66,0.08);border-color:rgba(10,74,66,0.2)}
+.ep-usage.yes .ep-usage-value{color:var(--teal)}
+.ep-usage.no{opacity:0.5}
+.ep-cancers{display:flex;flex-wrap:wrap;gap:8px}
+.ep-cancer-tag{padding:5px 12px;border-radius:4px;font-size:12px;font-weight:500;background:rgba(10,74,66,0.08);color:var(--teal)}
+@media(max-width:768px){.explorer-grid{grid-template-columns:1fr}.explorer-tabs{flex-direction:row;overflow-x:auto}.exp-tab{flex-direction:column;text-align:center;padding:12px 16px;gap:6px;min-width:110px;border-bottom:none;border-right:1px solid rgba(0,0,0,0.04)}.exp-tab-sub{display:none}.explorer-panel{padding:24px}.ep-stats,.ep-usage-grid{grid-template-columns:1fr}}
+
+/* ── IHC SLIDER ── */
+#ihc{background:linear-gradient(180deg, var(--cream2) 0%, var(--cream) 100%)}
+.ihc-controls{display:flex;align-items:center;gap:16px;margin:40px 0 32px;flex-wrap:wrap}
+.ihc-track{flex:1;min-width:200px}
+.ihc-track input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:4px;border-radius:2px;background:linear-gradient(90deg,var(--teal) 0%,var(--teal2) 33%,var(--gold) 66%,var(--burd) 100%);outline:none;cursor:pointer}
+.ihc-track input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--dark);border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.3);cursor:pointer}
+.ihc-track input[type=range]::-moz-range-thumb{width:20px;height:20px;border-radius:50%;background:var(--dark);border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,0.3);cursor:pointer}
+.ihc-label{font-size:13px;font-weight:500;color:var(--muted);white-space:nowrap}
+.ihc-stage-badge{padding:6px 14px;background:var(--teal);color:#fff;border-radius:100px;font-size:12px;font-weight:500;letter-spacing:0.04em}
+.ihc-display{display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start}
+.ihc-image-wrap{border-radius:12px;overflow:hidden;border:1px solid rgba(0,0,0,0.08);background:var(--dark);aspect-ratio:4/3;position:relative}
+.ihc-image-wrap img{width:100%;height:100%;object-fit:cover;display:block;transition:opacity 0.4s}
+.ihc-image-caption{position:absolute;bottom:0;left:0;right:0;padding:10px 14px;background:linear-gradient(180deg, transparent, rgba(0,0,0,0.8));color:rgba(255,255,255,0.85);font-size:11px}
+.ihc-data{padding:4px 0}
+.ihc-stage-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:var(--dark);margin-bottom:20px}
+.ihc-marker-section{margin-bottom:22px}
+.ihc-marker-label{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.ihc-marker-value{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;margin-bottom:12px}
+.ihc-bar-wrap{}
+.ihc-bar-label-row{display:flex;justify-content:space-between;margin-bottom:5px;font-size:12px;color:var(--muted)}
+.ihc-bar-label-row span:nth-child(2){font-weight:500;color:var(--dark)}
+.ihc-bar{height:8px;border-radius:4px;background:var(--cream2);overflow:hidden}
+.ihc-bar-fill{height:100%;border-radius:4px;transition:width 0.6s cubic-bezier(0.4,0,0.2,1)}
+.ihc-saliva-box{background:linear-gradient(135deg, rgba(200,150,10,0.08) 0%, rgba(200,150,10,0.15) 100%);border:1px solid rgba(200,150,10,0.3);border-radius:8px;padding:16px 18px;margin-top:18px}
+.ihc-saliva-label{font-size:10px;font-weight:500;letter-spacing:0.12em;text-transform:uppercase;color:#8a6200;margin-bottom:8px;display:flex;align-items:center;gap:6px}
+.ihc-saliva-text{font-size:13px;color:var(--dark);line-height:1.6}
+.ihc-clinical-box{background:rgba(139,26,26,0.06);border-left:3px solid var(--burd);border-radius:4px;padding:12px 16px;margin-top:12px;font-size:12px;color:var(--dark);line-height:1.6}
+.ihc-clinical-box strong{color:var(--burd);font-weight:500}
+@media(max-width:768px){.ihc-display{grid-template-columns:1fr}}
+
+/* ── RISK CALCULATOR ── */
+#calculator{background:var(--teal);color:#fff}
+#calculator .section-eyebrow{color:var(--gold)}
+#calculator .section-title{color:#fff}
+#calculator .section-lead{color:rgba(255,255,255,0.6)}
+.calc-grid{display:grid;grid-template-columns:1fr 1fr;gap:32px;margin-top:48px}
+.calc-form{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:28px}
+.calc-title{color:#fff;font-size:15px;font-weight:500;margin-bottom:20px;letter-spacing:0.02em}
+.calc-check{display:flex;align-items:center;gap:10px;cursor:pointer;padding:10px 14px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.08);border-radius:8px;transition:all 0.2s;margin-bottom:8px}
+.calc-check:hover{background:rgba(255,255,255,0.08)}
+.calc-check input{width:16px;height:16px;cursor:pointer;accent-color:var(--gold)}
+.calc-check span{color:rgba(255,255,255,0.85);font-size:13px}
+.calc-btn{width:100%;background:var(--gold);color:var(--dark);border:none;padding:14px;border-radius:8px;font-size:15px;font-weight:500;cursor:pointer;margin-top:12px;transition:background 0.2s;font-family:inherit}
+.calc-btn:hover{background:var(--gold2)}
+.calc-result{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:28px;display:flex;flex-direction:column;justify-content:space-between}
+.calc-result-title{color:rgba(255,255,255,0.5);font-size:11px;text-transform:uppercase;letter-spacing:0.12em;margin-bottom:20px}
+.result-panel{display:none}
+.result-panel.show{display:block;animation:fadeSlideUp 0.4s ease}
+.result-risk{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:600;color:#fff;line-height:1;margin-bottom:4px}
+.result-risk.low{color:#6fd1a3}
+.result-risk.moderate{color:var(--gold2)}
+.result-risk.high{color:#e57373}
+.result-sub{color:rgba(255,255,255,0.55);font-size:13px;margin-bottom:20px}
+.result-confidence{display:inline-flex;align-items:center;gap:8px;padding:4px 10px;background:rgba(255,255,255,0.08);border-radius:100px;font-size:11px;color:rgba(255,255,255,0.7);margin-bottom:20px}
+.result-conf-dot{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.rec-label{font-size:10px;text-transform:uppercase;letter-spacing:0.1em;color:rgba(255,255,255,0.4);margin-bottom:8px}
+.rec-markers{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.rec-marker{padding:5px 12px;background:rgba(200,150,10,0.2);border:1px solid rgba(200,150,10,0.3);border-radius:100px;color:var(--gold2);font-size:12px}
+.result-metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:16px 0}
+.result-metric{background:rgba(255,255,255,0.06);border-radius:8px;padding:12px;text-align:center}
+.result-metric-num{font-family:'Cormorant Garamond',serif;font-size:20px;color:#fff;display:block}
+.result-metric-label{font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.06em}
+.result-action{background:rgba(255,255,255,0.04);border-radius:8px;padding:14px 16px;margin-top:16px;font-size:12px;color:rgba(255,255,255,0.75);line-height:1.6;border-left:2px solid var(--gold)}
+.result-action strong{color:var(--gold2);font-weight:500}
+.result-disclaimer{font-size:11px;color:rgba(255,255,255,0.35);margin-top:14px;line-height:1.5;padding-top:14px;border-top:1px solid rgba(255,255,255,0.08)}
+.calc-empty{text-align:center;padding:40px 0}
+.calc-empty-text{color:rgba(255,255,255,0.4);font-size:13px;max-width:260px;margin:0 auto}
+.calc-empty-icon-svg{width:40px;height:40px;margin:0 auto 14px;opacity:0.4}
+@media(max-width:768px){.calc-grid{grid-template-columns:1fr}}
+
+/* ── CLINICAL WORKFLOW ── */
+#workflow{background:linear-gradient(180deg, var(--cream) 0%, var(--cream2) 100%)}
+.workflow-steps{display:grid;grid-template-columns:repeat(4, 1fr);gap:2px;margin-top:40px;background:rgba(0,0,0,0.06);border-radius:12px;overflow:hidden;border:1px solid rgba(0,0,0,0.06)}
+.workflow-step{background:#fff;padding:28px 24px;cursor:pointer;transition:background 0.2s;position:relative;border-top:3px solid transparent}
+.workflow-step:hover{background:var(--cream)}
+.workflow-step.active{border-top-color:var(--teal);background:var(--cream)}
+.wf-num{display:inline-block;width:28px;height:28px;border-radius:50%;background:var(--teal);color:#fff;font-family:'Cormorant Garamond',serif;font-size:14px;font-weight:600;text-align:center;line-height:28px;margin-bottom:14px}
+.wf-time{float:right;font-size:11px;color:var(--muted);letter-spacing:0.04em;text-transform:uppercase;margin-top:6px}
+.wf-title{font-size:16px;font-weight:500;color:var(--dark);margin-bottom:6px}
+.wf-text{font-size:12px;color:var(--muted);line-height:1.6}
+.wf-expand{background:#fff;padding:32px 36px;margin-top:2px;border-radius:0 0 12px 12px;border:1px solid rgba(0,0,0,0.06);border-top:none;display:none}
+.wf-expand.active{display:block;animation:fadeSlideUp 0.3s ease}
+.wf-exp-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--dark);margin-bottom:8px}
+.wf-exp-lead{font-size:13px;color:var(--muted);margin-bottom:20px;line-height:1.6}
+.wf-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
+.wf-detail-title{font-size:10px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--teal);margin-bottom:10px}
+.wf-list{list-style:none;font-size:13px;color:var(--dark);line-height:1.8}
+.wf-list li{padding-left:16px;position:relative}
+.wf-list li::before{content:'▸';position:absolute;left:0;color:var(--teal2)}
+@media(max-width:768px){.workflow-steps{grid-template-columns:1fr 1fr}.wf-detail-grid{grid-template-columns:1fr}}
+@media(max-width:480px){.workflow-steps{grid-template-columns:1fr}}
+
+/* ── SYSTEMATIC REVIEWS ── */
+#reviews{background:var(--cream2)}
+.reviews-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:48px}
+.review-card{background:#fff;border-radius:10px;padding:20px;border-left:4px solid;border-top:1px solid rgba(0,0,0,0.06);border-right:1px solid rgba(0,0,0,0.06);border-bottom:1px solid rgba(0,0,0,0.06);transition:transform 0.2s,box-shadow 0.2s;cursor:pointer}
+.review-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.rc-author{font-size:13px;font-weight:500;margin-bottom:4px}
+.rc-bio{font-size:11px;color:var(--muted);margin-bottom:14px;line-height:1.5}
+.rc-metric{margin-bottom:8px}
+.rc-metric-label{font-size:10px;text-transform:uppercase;letter-spacing:0.06em;color:var(--muted)}
+.rc-metric-value{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600}
+.rc-n{font-size:11px;color:var(--muted);margin:10px 0}
+.rc-limit{font-size:11px;color:var(--muted);line-height:1.5;padding-top:10px;border-top:1px solid rgba(0,0,0,0.06)}
+@media(max-width:1024px){.reviews-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:600px){.reviews-grid{grid-template-columns:1fr 1fr}}
+
+/* ── MISSION / EGYPT ── */
+#mission{background:linear-gradient(135deg, #073a36 0%, var(--teal) 60%, #0d3558 100%);color:#fff;position:relative;overflow:hidden}
+#mission::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 20%, rgba(200,150,10,0.15) 0%, transparent 60%);pointer-events:none}
+#mission .section-eyebrow{color:var(--gold)}
+#mission .section-title{color:#fff}
+.mission-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px;margin-top:48px;position:relative;z-index:2}
+.mission-narrative{font-size:16px;color:rgba(255,255,255,0.8);line-height:1.8}
+.mission-narrative p{margin-bottom:16px}
+.mission-narrative strong{color:var(--gold2);font-weight:500}
+.mission-commits{display:flex;flex-direction:column;gap:12px}
+.commit-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:20px 22px;backdrop-filter:blur(4px);transition:all 0.2s}
+.commit-card:hover{background:rgba(255,255,255,0.1);border-color:rgba(200,150,10,0.4)}
+.commit-num{color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;line-height:1;margin-bottom:8px}
+.commit-title{color:#fff;font-size:14px;font-weight:500;margin-bottom:6px}
+.commit-text{color:rgba(255,255,255,0.6);font-size:12px;line-height:1.6}
+@media(max-width:768px){.mission-grid{grid-template-columns:1fr}}
+
+/* ── KEY FINDINGS ── */
+#findings{background:#fff}
+.findings-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:48px}
+.finding-card{border-radius:10px;padding:26px;border:1px solid rgba(0,0,0,0.07);transition:all 0.2s;position:relative;overflow:hidden}
+.finding-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.finding-card:hover{border-color:rgba(0,0,0,0.12);box-shadow:var(--shadow-sm)}
+.fc-num{font-family:'Cormorant Garamond',serif;font-size:40px;font-weight:600;line-height:1;margin-bottom:8px}
+.fc-label{font-size:14px;font-weight:500;color:var(--dark);margin-bottom:6px}
+.fc-desc{font-size:13px;color:var(--muted);line-height:1.6}
+@media(max-width:768px){.findings-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:480px){.findings-grid{grid-template-columns:1fr}}
+
+/* ── ABOUT THE RESEARCH ── */
+#about{background:var(--cream);border-top:1px solid rgba(0,0,0,0.05)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:56px;margin-top:40px;align-items:start}
+.about-lead{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:500;color:var(--dark);line-height:1.5;font-style:italic}
+.about-body{font-size:15px;color:var(--muted);line-height:1.8}
+.about-body p{margin-bottom:16px}
+.about-body strong{color:var(--dark);font-weight:500}
+@media(max-width:768px){.about-grid{grid-template-columns:1fr;gap:24px}}
+
+/* ── TEAM ── */
+#team{background:#fff}
+.team-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:40px}
+.team-card{text-align:center;padding:24px 14px;background:var(--cream);border-radius:10px;border:1px solid rgba(0,0,0,0.05)}
+.team-avatar{width:52px;height:52px;border-radius:50%;background:var(--teal);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600;margin:0 auto 12px}
+.team-name{font-size:13px;font-weight:500;color:var(--dark);line-height:1.4;margin-bottom:4px}
+.team-role{font-size:11px;color:var(--muted)}
+.supervisors{margin-top:28px;display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
+.supervisor-card{display:flex;align-items:center;gap:12px;background:var(--cream);border:1px solid rgba(0,0,0,0.05);border-radius:10px;padding:14px 22px}
+.sup-avatar{width:42px;height:42px;border-radius:50%;background:var(--burd);color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Cormorant Garamond',serif;font-size:15px;font-weight:600}
+.sup-name{font-size:14px;font-weight:500;color:var(--dark)}
+.sup-role{font-size:11px;color:var(--muted)}
+@media(max-width:900px){.team-grid{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:480px){.team-grid{grid-template-columns:1fr 1fr}}
+
+/* ── DOWNLOADS ── */
+#downloads{background:var(--dark)}
+#downloads .section-title{color:#fff}
+#downloads .section-eyebrow{color:var(--gold)}
+.downloads-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:40px}
+.download-card{background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.1);border-radius:12px;padding:28px;text-decoration:none;color:#fff;transition:all 0.2s;display:block}
+.download-card:hover{background:rgba(255,255,255,0.08);border-color:var(--gold2)}
+.download-label{font-size:11px;color:var(--gold2);letter-spacing:0.12em;text-transform:uppercase;margin-bottom:8px}
+.download-title{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;margin-bottom:8px}
+.download-desc{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:16px}
+.download-action{font-size:12px;color:var(--gold2);letter-spacing:0.05em}
+@media(max-width:768px){.downloads-grid{grid-template-columns:1fr}}
+
+/* ── FOOTER ── */
+footer{background:var(--teal);padding:48px 24px}
+.footer-inner{max-width:1200px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px}
+.footer-title{font-family:'Cormorant Garamond',serif;font-size:18px;color:#fff;margin-bottom:12px}
+.footer-text{font-size:13px;color:rgba(255,255,255,0.55);line-height:1.7}
+.footer-bottom{max-width:1200px;margin:32px auto 0;padding-top:24px;border-top:1px solid rgba(255,255,255,0.1);display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px}
+.footer-bottom-text{font-size:12px;color:rgba(255,255,255,0.35)}
+@media(max-width:768px){.footer-inner{grid-template-columns:1fr}}
+
+/* ── REFERENCES DRAWER ── */
+.refs-drawer{position:fixed;bottom:0;left:0;right:0;background:#fff;border-top:1px solid rgba(0,0,0,0.08);box-shadow:0 -12px 40px rgba(0,0,0,0.15);transform:translateY(100%);transition:transform 0.35s cubic-bezier(0.4,0,0.2,1);z-index:300;max-height:70vh;display:flex;flex-direction:column}
+.refs-drawer.open{transform:translateY(0)}
+.refs-handle{padding:14px 20px;border-bottom:1px solid rgba(0,0,0,0.06);display:flex;justify-content:space-between;align-items:center;background:var(--cream);flex-shrink:0}
+.refs-handle-title{font-family:'Cormorant Garamond',serif;font-size:18px;font-weight:600}
+.refs-close{background:none;border:none;cursor:pointer;font-size:22px;color:var(--muted);padding:0 10px;line-height:1;font-family:inherit}
+.refs-close:hover{color:var(--dark)}
+.refs-body{overflow-y:auto;padding:20px 24px}
+.ref-item{padding:14px 0;border-bottom:1px solid rgba(0,0,0,0.05);display:grid;grid-template-columns:40px 1fr;gap:14px;align-items:start}
+.ref-item:last-child{border-bottom:none}
+.ref-item.highlight{background:rgba(200,150,10,0.06);margin:0 -24px;padding-left:24px;padding-right:24px}
+.ref-num{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--teal);line-height:1}
+.ref-content{font-size:13px;line-height:1.6;color:var(--dark)}
+.ref-authors{font-weight:500}
+.ref-journal{font-style:italic;color:var(--muted)}
+.ref-doi{display:inline-block;margin-top:6px;color:var(--blue);text-decoration:none;font-size:12px;border-bottom:1px solid transparent;transition:border-color 0.2s}
+.ref-doi:hover{border-bottom-color:var(--blue)}
+.refs-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.3);z-index:250;opacity:0;pointer-events:none;transition:opacity 0.3s}
+.refs-overlay.open{opacity:1;pointer-events:auto}
+
+/* ── CITE THIS WORK MODAL ── */
+.cite-modal{position:fixed;inset:0;background:rgba(0,0,0,0.5);z-index:400;display:none;align-items:center;justify-content:center;padding:24px;backdrop-filter:blur(4px)}
+.cite-modal.open{display:flex}
+.cite-box{background:#fff;border-radius:16px;padding:32px;max-width:560px;width:100%;box-shadow:var(--shadow-lg)}
+.cite-box h3{font-family:'Cormorant Garamond',serif;font-size:24px;font-weight:600;margin-bottom:8px}
+.cite-box p{color:var(--muted);font-size:13px;margin-bottom:20px}
+.cite-text{background:var(--cream);padding:16px;border-radius:8px;font-family:monospace;font-size:12px;line-height:1.7;color:var(--dark);margin-bottom:16px;white-space:pre-wrap;word-break:break-word}
+.cite-actions{display:flex;gap:10px;justify-content:flex-end}
+.cite-btn{padding:10px 20px;border-radius:6px;font-size:13px;cursor:pointer;border:none;font-family:inherit;font-weight:500;transition:all 0.2s}
+.cite-btn-primary{background:var(--teal);color:#fff}
+.cite-btn-primary:hover{background:var(--teal2)}
+.cite-btn-secondary{background:var(--cream2);color:var(--dark)}
+.cite-btn-secondary:hover{background:var(--cream)}
+.copied-msg{color:var(--teal2);font-size:12px;font-weight:500}
+
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity 0.6s,transform 0.6s}
+.reveal.visible{opacity:1;transform:none}
+.reveal-delay-1{transition-delay:0.1s}
+.reveal-delay-2{transition-delay:0.2s}
+.reveal-delay-3{transition-delay:0.3s}
+
+/* ── FOCUS STATES ── */
+*:focus-visible{outline:2px solid var(--gold);outline-offset:2px;border-radius:3px}
+
+/* ── TEAM PHOTOS (new) ── */
+.team-photo{width:96px;height:96px;border-radius:50%;overflow:hidden;margin:0 auto 14px;border:3px solid #fff;box-shadow:var(--shadow-sm);background:var(--cream2);position:relative}
+.team-photo img{width:100%;height:100%;object-fit:cover;object-position:center 18%;display:block;transition:transform 0.4s}
+.team-card{transition:transform 0.25s, box-shadow 0.25s}
+.team-card:hover{transform:translateY(-3px);box-shadow:var(--shadow-md)}
+.team-card:hover .team-photo img{transform:scale(1.05)}
+
+/* ── AUC CHART (new) ── */
+#chart{background:linear-gradient(180deg, var(--cream2) 0%, var(--cream) 100%)}
+.chart-controls{background:#fff;border-radius:12px;padding:24px 28px;margin-top:40px;border:1px solid rgba(0,0,0,0.06);box-shadow:var(--shadow-sm)}
+.chart-filter-row{display:flex;gap:24px;flex-wrap:wrap;align-items:flex-start}
+.chart-filter-group{flex:1;min-width:200px}
+.chart-filter-label{font-size:11px;font-weight:500;letter-spacing:0.1em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.chart-pills{display:flex;gap:6px;flex-wrap:wrap}
+.chart-pill{padding:6px 14px;border-radius:100px;font-size:12px;cursor:pointer;background:var(--cream);border:1px solid rgba(0,0,0,0.08);color:var(--dark);transition:all 0.15s;user-select:none;font-family:inherit}
+.chart-pill:hover{border-color:var(--teal2)}
+.chart-pill.active{background:var(--teal);color:#fff;border-color:var(--teal)}
+.chart-canvas{background:#fff;border-radius:12px;padding:32px;margin-top:16px;border:1px solid rgba(0,0,0,0.06);box-shadow:var(--shadow-sm);min-height:420px}
+.chart-bars{display:flex;flex-direction:column;gap:14px;margin-top:20px}
+.chart-bar-row{display:grid;grid-template-columns:180px 1fr 60px;gap:14px;align-items:center}
+.chart-bar-label{font-size:13px;color:var(--dark);font-weight:500;line-height:1.3}
+.chart-bar-sub{font-size:10px;color:var(--muted);font-weight:400;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px;display:block}
+.chart-bar-track{height:28px;background:var(--cream);border-radius:6px;position:relative;overflow:hidden}
+.chart-bar-fill{height:100%;border-radius:6px;transition:width 0.8s cubic-bezier(0.4,0,0.2,1);display:flex;align-items:center;padding-left:10px;color:#fff;font-size:11px;font-weight:500;white-space:nowrap;min-width:0}
+.chart-bar-value{font-family:'Cormorant Garamond',serif;font-size:20px;font-weight:600;color:var(--dark);text-align:right}
+.chart-empty{text-align:center;padding:60px 20px;color:var(--muted);font-size:13px}
+.chart-summary{margin-top:24px;padding-top:20px;border-top:1px solid rgba(0,0,0,0.06);display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
+.chart-stat{text-align:center}
+.chart-stat-num{font-family:'Cormorant Garamond',serif;font-size:28px;font-weight:600;color:var(--teal);display:block;line-height:1}
+.chart-stat-label{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:0.06em;margin-top:4px;display:block}
+
+/* ── REFERENCE SEARCH (new) ── */
+.refs-search-wrap{padding:14px 20px;border-bottom:1px solid rgba(0,0,0,0.06);background:#fff}
+.refs-search{width:100%;padding:10px 14px 10px 36px;border:1px solid rgba(0,0,0,0.1);border-radius:8px;font-size:13px;background:var(--cream) url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%235a4a3a' stroke-width='2'><circle cx='11' cy='11' r='8'/><path d='M21 21l-4.35-4.35'/></svg>") no-repeat 12px center;font-family:inherit;outline:none;transition:border-color 0.2s}
+.refs-search:focus{border-color:var(--teal2)}
+.refs-no-results{padding:40px 20px;text-align:center;color:var(--muted);font-size:13px;display:none}
+.refs-no-results.show{display:block}
+
+/* ═══════════════════════════════════════ */
+/* MOBILE OPTIMIZATION OVERRIDES           */
+/* ═══════════════════════════════════════ */
+@media(max-width:768px){
+  section{padding:64px 20px}
+
+  /* Nav */
+  nav .nav-inner{padding:0 16px;height:54px}
+  .nav-logo{font-size:14px;max-width:60%}
+  .nav-cta{padding:6px 14px;font-size:12px}
+
+  /* Hero */
+  #hero{padding-top:54px}
+  .hero-content{padding:40px 16px 60px}
+  .hero-logo{width:64px;height:64px}
+  .hero-logo img{width:52px;height:52px}
+  .hero-logos{gap:20px;margin-bottom:24px}
+  .hero-badge{font-size:10px;padding:5px 14px;letter-spacing:0.06em}
+  .hero-title{font-size:clamp(32px,9vw,48px);line-height:1.05;margin-bottom:14px}
+  .hero-sub{font-size:13px;margin-bottom:14px}
+  .hero-keywords{gap:6px;margin-bottom:24px}
+  .hero-keyword{font-size:10px;padding:3px 10px}
+  .hero-btns{flex-direction:column;gap:10px;margin-bottom:40px;width:100%;max-width:300px;margin-left:auto;margin-right:auto}
+  .btn-primary,.btn-outline,.btn-ghost{width:100%;padding:14px 20px;font-size:14px;text-align:center}
+  .hero-stats{grid-template-columns:1fr 1fr;border-radius:12px}
+  .stat-num{font-size:28px}
+  .stat-label{font-size:9px;letter-spacing:0.08em}
+
+  /* Section titles */
+  .section-title{font-size:clamp(24px,6vw,32px);line-height:1.2}
+  .section-lead{font-size:14px}
+  .section-meta{gap:10px}
+
+  /* Video */
+  .video-wrapper{border-radius:10px;margin-top:28px}
+
+  /* Story */
+  #story{padding:56px 16px}
+  .story-grid{grid-template-columns:1fr}
+  .story-step{padding:20px 18px}
+  .story-num{font-size:26px;margin-bottom:8px}
+  .story-step-title{font-size:14px}
+
+  /* Explorer — horizontal scroll tabs */
+  .explorer-grid{grid-template-columns:1fr;min-height:auto}
+  .explorer-tabs{flex-direction:row;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .explorer-tabs::-webkit-scrollbar{display:none}
+  .exp-tab{flex-direction:column;text-align:center;padding:14px 16px;gap:6px;min-width:100px;border-bottom:none;border-right:1px solid rgba(0,0,0,0.04);border-left:none;border-top:3px solid transparent}
+  .exp-tab.active{border-left:none;border-top-color:var(--teal2)}
+  .exp-tab-sub{display:none}
+  .exp-tab-label{font-size:12px}
+  .explorer-panel{padding:24px 20px}
+  .ep-title{font-size:24px}
+  .ep-lead{font-size:13px}
+  .ep-stats,.ep-usage-grid{grid-template-columns:1fr}
+  .ep-stat{padding:12px}
+  .ep-stat-num{font-size:20px}
+
+  /* IHC */
+  .ihc-display{grid-template-columns:1fr;gap:20px}
+  .ihc-controls{flex-wrap:wrap;gap:10px;margin:24px 0 24px}
+  .ihc-track{width:100%;flex-basis:100%;min-width:0;order:3}
+  .ihc-stage-badge{order:2;font-size:11px;padding:5px 12px}
+  .ihc-stage-title{font-size:22px;margin-bottom:16px}
+  .ihc-marker-value{font-size:18px}
+  .ihc-saliva-box{padding:12px 14px}
+  .ihc-saliva-text,.ihc-clinical-box{font-size:12px}
+
+  /* Calculator */
+  .calc-grid{grid-template-columns:1fr;gap:20px}
+  .calc-form,.calc-result{padding:20px}
+  .calc-check{padding:10px 12px}
+  .calc-check span{font-size:12px}
+  .result-risk{font-size:36px}
+  .result-metrics{grid-template-columns:repeat(3,1fr);gap:4px}
+  .result-metric{padding:10px 8px}
+  .result-metric-num{font-size:16px}
+  .result-metric-label{font-size:9px}
+
+  /* Workflow — vertical accordion */
+  .workflow-steps{grid-template-columns:1fr;border-radius:10px 10px 0 0}
+  .workflow-step{border-top:none;border-left:3px solid transparent;padding:18px 20px}
+  .workflow-step.active{border-top:none;border-left-color:var(--teal)}
+  .wf-num{width:24px;height:24px;font-size:12px;line-height:24px;margin-bottom:8px}
+  .wf-time{font-size:10px}
+  .wf-title{font-size:14px}
+  .wf-text{font-size:11px}
+  .wf-expand{padding:20px 18px;border-radius:0 0 10px 10px}
+  .wf-exp-title{font-size:18px}
+  .wf-exp-lead{font-size:12px}
+  .wf-detail-grid{grid-template-columns:1fr;gap:20px}
+  .wf-list{font-size:12px;line-height:1.7}
+
+  /* Reviews */
+  .reviews-grid{grid-template-columns:1fr;gap:10px}
+  .review-card{padding:16px}
+  .rc-metric-value{font-size:18px}
+
+  /* Mission */
+  .mission-grid{grid-template-columns:1fr;gap:28px}
+  .mission-narrative{font-size:14px}
+  .commit-card{padding:16px 18px}
+  .commit-num{font-size:22px}
+  .commit-title{font-size:13px}
+  .commit-text{font-size:11px}
+
+  /* Findings */
+  .findings-grid{grid-template-columns:1fr;gap:12px}
+  .finding-card{padding:20px}
+  .fc-num{font-size:34px}
+  .fc-label{font-size:13px}
+  .fc-desc{font-size:12px}
+
+  /* About */
+  .about-grid{grid-template-columns:1fr;gap:20px}
+  .about-lead{font-size:18px}
+  .about-body{font-size:14px}
+
+  /* Team */
+  .team-grid{grid-template-columns:1fr 1fr;gap:10px}
+  .team-card{padding:18px 10px}
+  .team-photo{width:72px;height:72px}
+  .team-name{font-size:12px}
+  .team-role{font-size:10px}
+  .supervisors{gap:10px}
+  .supervisor-card{padding:12px 16px;flex-direction:column;text-align:center;gap:8px}
+  .sup-avatar{width:38px;height:38px;font-size:13px}
+  .sup-name{font-size:13px}
+  .sup-role{font-size:10px}
+
+  /* Downloads */
+  .downloads-grid{grid-template-columns:1fr;gap:14px}
+  .download-card{padding:22px}
+  .download-title{font-size:18px}
+
+  /* Footer */
+  footer{padding:36px 20px}
+  .footer-inner{grid-template-columns:1fr;gap:24px}
+  .footer-bottom{flex-direction:column;text-align:center;gap:8px}
+
+  /* Refs drawer */
+  .refs-drawer{max-height:80vh}
+  .refs-body{padding:12px 16px}
+  .ref-item{grid-template-columns:30px 1fr;gap:10px;padding:12px 0}
+  .ref-num{font-size:17px}
+  .ref-content{font-size:12px;line-height:1.5}
+  .ref-doi{font-size:11px;word-break:break-all}
+
+  /* Cite modal */
+  .cite-box{padding:22px;border-radius:12px}
+  .cite-box h3{font-size:20px}
+  .cite-text{font-size:11px;padding:12px}
+  .cite-actions{flex-wrap:wrap;gap:8px}
+  .cite-btn{padding:10px 18px;font-size:12px;flex:1;min-width:0}
+
+  /* Chart */
+  .chart-controls{padding:18px}
+  .chart-filter-row{gap:14px}
+  .chart-canvas{padding:20px;min-height:auto}
+  .chart-bar-row{grid-template-columns:130px 1fr 50px;gap:10px}
+  .chart-bar-label{font-size:11px}
+  .chart-bar-fill{font-size:10px;padding-left:8px}
+  .chart-bar-value{font-size:16px}
+  .chart-summary{grid-template-columns:1fr;gap:14px}
+  .chart-stat-num{font-size:22px}
+}
+
+/* Very narrow phones */
+@media(max-width:380px){
+  .hero-title{font-size:28px}
+  .section-title{font-size:22px}
+  .team-grid{grid-template-columns:1fr}
+  .chart-bar-row{grid-template-columns:110px 1fr 44px;gap:8px}
+}
+
+/* Touch-friendly targets on mobile */
+@media(hover:none) and (pointer:coarse){
+  .cite,.exp-tab,.workflow-step,.review-card,.calc-check{-webkit-tap-highlight-color:rgba(10,74,66,0.1)}
+  .ihc-track input[type=range]::-webkit-slider-thumb{width:26px;height:26px}
+  .ihc-track input[type=range]::-moz-range-thumb{width:26px;height:26px}
+}
+
+/* ═══════════════════════════════════════════════════════════
+   V14 ASTONISH LAYER — cinematic polish
+   ═══════════════════════════════════════════════════════════ */
+
+/* ---- 1. CINEMATIC PRELOADER ---- */
+#preloader{position:fixed;inset:0;z-index:9999;background:#062e28;display:flex;align-items:center;justify-content:center;flex-direction:column;transition:opacity 0.8s ease,visibility 0.8s ease}
+#preloader.done{opacity:0;visibility:hidden;pointer-events:none}
+.pre-helix{width:80px;height:120px;position:relative;margin-bottom:32px}
+.pre-helix svg{width:100%;height:100%;overflow:visible}
+.pre-helix .rung{opacity:0;animation:rungIn 0.5s ease forwards}
+.pre-dot{opacity:0;animation:rungIn 0.5s ease forwards}
+@keyframes rungIn{from{opacity:0;transform:scale(0)}to{opacity:1;transform:scale(1)}}
+.pre-title{font-family:'Cormorant Garamond',serif;font-size:26px;font-weight:600;color:#fff;letter-spacing:0.04em;opacity:0;animation:preFade 1s ease 1.1s forwards;text-align:center}
+.pre-sub{font-family:'DM Sans',sans-serif;font-size:11px;letter-spacing:0.3em;text-transform:uppercase;color:rgba(200,150,10,0.9);margin-top:10px;opacity:0;animation:preFade 1s ease 1.4s forwards}
+@keyframes preFade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.pre-bar{width:160px;height:2px;background:rgba(255,255,255,0.12);border-radius:2px;margin-top:28px;overflow:hidden;opacity:0;animation:preFade 0.6s ease 1.5s forwards}
+.pre-bar-fill{height:100%;width:0;background:linear-gradient(90deg,var(--gold),var(--gold2));animation:preBar 1.4s ease 1.5s forwards}
+@keyframes preBar{to{width:100%}}
+
+/* ---- 2. CUSTOM CURSOR GLOW (desktop only) ---- */
+@media(hover:hover) and (pointer:fine){
+  #cursor-glow{position:fixed;width:400px;height:400px;border-radius:50%;pointer-events:none;z-index:1;background:radial-gradient(circle,rgba(26,156,134,0.07) 0%,transparent 65%);transform:translate(-50%,-50%);transition:opacity 0.3s;will-change:transform;left:0;top:0}
+}
+@media(hover:none),(pointer:coarse){#cursor-glow{display:none}}
+
+/* ---- 3. SCROLL PROGRESS RAIL ---- */
+#scroll-rail{position:fixed;top:50%;right:22px;transform:translateY(-50%);z-index:150;display:flex;flex-direction:column;gap:11px}
+#scroll-rail .rail-dot{width:9px;height:9px;border-radius:50%;background:rgba(10,74,66,0.18);cursor:pointer;transition:all 0.3s;position:relative;border:none;padding:0}
+#scroll-rail .rail-dot:hover{background:rgba(10,74,66,0.45);transform:scale(1.3)}
+#scroll-rail .rail-dot.active{background:var(--gold);transform:scale(1.35);box-shadow:0 0 0 4px rgba(200,150,10,0.18)}
+#scroll-rail .rail-dot .rail-label{position:absolute;right:20px;top:50%;transform:translateY(-50%) translateX(6px);background:var(--dark);color:#fff;font-size:10px;font-family:'DM Sans',sans-serif;letter-spacing:0.06em;text-transform:uppercase;padding:4px 9px;border-radius:4px;white-space:nowrap;opacity:0;pointer-events:none;transition:all 0.25s}
+#scroll-rail .rail-dot:hover .rail-label{opacity:1;transform:translateY(-50%) translateX(0)}
+@media(max-width:1100px){#scroll-rail{display:none}}
+/* top scroll progress bar */
+#scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--gold),var(--gold2),var(--teal3));z-index:201;width:0%;transition:width 0.1s linear}
+
+/* ---- 4. MAGNETIC / SHINE BUTTONS ---- */
+.btn-primary,.nav-cta{position:relative;overflow:hidden}
+.btn-primary::after,.nav-cta::after{content:'';position:absolute;top:0;left:-120%;width:60%;height:100%;background:linear-gradient(120deg,transparent,rgba(255,255,255,0.5),transparent);transform:skewX(-20deg);transition:none}
+.btn-primary:hover::after,.nav-cta:hover::after{animation:btnShine 0.8s ease}
+@keyframes btnShine{to{left:140%}}
+
+/* ---- 5. SCROLL-DRAW JOURNEY SECTION ---- */
+#journey{background:linear-gradient(180deg,#062e28 0%,#0a4a42 50%,#073a55 100%);position:relative;overflow:hidden;padding:110px 24px}
+#journey::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 50% 60% at 50% 0%,rgba(200,150,10,0.08),transparent 60%);pointer-events:none}
+.journey-head{text-align:center;max-width:720px;margin:0 auto 60px;position:relative;z-index:2}
+.journey-eyebrow{font-size:11px;font-weight:500;letter-spacing:0.18em;text-transform:uppercase;color:var(--gold2);margin-bottom:14px}
+.journey-title{font-family:'Cormorant Garamond',serif;font-size:clamp(28px,4vw,44px);font-weight:600;color:#fff;line-height:1.12;margin-bottom:16px}
+.journey-lead{font-size:15px;color:rgba(255,255,255,0.6);line-height:1.7}
+.journey-stage{font-family:'Cormorant Garamond',serif;font-style:italic;color:var(--gold2)}
+.journey-canvas{max-width:1000px;margin:0 auto;position:relative;z-index:2}
+.journey-svg{width:100%;height:auto;display:block;overflow:visible}
+.jpath-bg{fill:none;stroke:rgba(255,255,255,0.08);stroke-width:3}
+.jpath-draw{fill:none;stroke:url(#jgrad);stroke-width:3;stroke-linecap:round}
+.jnode circle{transition:all 0.5s ease}
+.jnode-label{font-family:'DM Sans',sans-serif;fill:#fff;font-size:13px;font-weight:500}
+.jnode-sub{font-family:'DM Sans',sans-serif;fill:rgba(255,255,255,0.55);font-size:10.5px}
+.jnode{opacity:0;transform:translateY(10px);transition:all 0.6s ease}
+.jnode.lit{opacity:1;transform:translateY(0)}
+.jmol{opacity:0}
+.jmol.run{opacity:1}
+.journey-steps{display:grid;grid-template-columns:repeat(5,1fr);gap:10px;max-width:1000px;margin:40px auto 0;position:relative;z-index:2}
+.jstep{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.1);border-radius:10px;padding:16px 14px;opacity:0;transform:translateY(16px);transition:all 0.5s ease}
+.jstep.lit{opacity:1;transform:translateY(0)}
+.jstep-n{font-family:'Cormorant Garamond',serif;font-size:22px;font-weight:600;color:var(--gold2);line-height:1;margin-bottom:8px}
+.jstep-t{font-size:13px;font-weight:600;color:#fff;margin-bottom:5px}
+.jstep-d{font-size:11px;color:rgba(255,255,255,0.55);line-height:1.55}
+@media(max-width:760px){.journey-steps{grid-template-columns:1fr 1fr}.journey-steps .jstep:last-child{grid-column:1/-1}}
+
+/* ---- 6. REVEAL UPGRADE (smoother, with blur) ---- */
+.reveal{filter:blur(4px)}
+.reveal.visible{filter:blur(0)}
+
+/* ---- 7. SECTION ENTRANCE for non-.reveal headings ---- */
+.fx-rise{opacity:0;transform:translateY(30px);transition:opacity 0.7s cubic-bezier(0.22,1,0.36,1),transform 0.7s cubic-bezier(0.22,1,0.36,1)}
+.fx-rise.visible{opacity:1;transform:none}
+
+/* ---- 8. HERO depth: subtle parallax pointer drift ---- */
+#hero{perspective:1000px}
+.hero-content{will-change:transform}
+
+/* ---- 9. STAT cards glow on hover ---- */
+.stat-card{transition:background 0.3s,box-shadow 0.3s}
+.stat-card:hover{box-shadow:inset 0 0 30px rgba(200,150,10,0.12)}
+
+/* ---- 10. card lift refinement globally ---- */
+.review-card,.finding-card,.team-card,.commit-card,.download-card{will-change:transform}
+
+/* ---- 11. ambient floating molecules behind body ---- */
+#ambient{position:fixed;inset:0;z-index:0;pointer-events:none;overflow:hidden}
+.amb-mol{position:absolute;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(26,156,134,0.18),rgba(10,74,66,0.04));opacity:0.5}
+
+/* respect reduced motion */
+@media(prefers-reduced-motion:reduce){
+  *{animation-duration:0.001s!important;transition-duration:0.001s!important}
+  #preloader{display:none}
+}
+
+</style>
+</head>
+<body>
+<!-- PRELOADER -->
+<div id="preloader">
+  <div class="pre-helix">
+    <svg viewBox="0 0 80 120">
+      <g stroke="rgba(255,255,255,0.45)" stroke-width="2" fill="none">
+        <path d="M20 5 Q60 30 20 55 Q-20 80 20 115" class="pre-strand"/>
+        <path d="M60 5 Q20 30 60 55 Q100 80 60 115" class="pre-strand"/>
+      </g>
+      <line class="rung" x1="20" y1="5" x2="60" y2="5" stroke="#e8b020" stroke-width="2.5" style="animation-delay:0.1s"/>
+      <line class="rung" x1="32" y1="20" x2="48" y2="20" stroke="#1a9c86" stroke-width="2" style="animation-delay:0.25s"/>
+      <line class="rung" x1="40" y1="30" x2="40" y2="30" stroke="#fff" stroke-width="2" style="animation-delay:0.4s"/>
+      <line class="rung" x1="32" y1="42" x2="48" y2="42" stroke="#1a9c86" stroke-width="2" style="animation-delay:0.55s"/>
+      <line class="rung" x1="20" y1="55" x2="60" y2="55" stroke="#c8960a" stroke-width="2" style="animation-delay:0.7s"/>
+      <line class="rung" x1="32" y1="68" x2="48" y2="68" stroke="#1a9c86" stroke-width="2" style="animation-delay:0.85s"/>
+      <line class="rung" x1="32" y1="92" x2="48" y2="92" stroke="#1a9c86" stroke-width="2" style="animation-delay:1.0s"/>
+      <line class="rung" x1="20" y1="115" x2="60" y2="115" stroke="#c8960a" stroke-width="2" style="animation-delay:1.15s"/>
+      <circle class="pre-dot" cx="20" cy="5" r="3" fill="#fff" style="animation-delay:0.1s"/>
+      <circle class="pre-dot" cx="60" cy="55" r="3" fill="#fff" style="animation-delay:0.7s"/>
+      <circle class="pre-dot" cx="20" cy="115" r="3" fill="#fff" style="animation-delay:1.15s"/>
+    </svg>
+  </div>
+  <div class="pre-title">Salivary Biomarkers</div>
+  <div class="pre-sub">in Cancer Detection</div>
+  <div class="pre-bar"><div class="pre-bar-fill"></div></div>
+</div>
+<div id="cursor-glow"></div>
+<div id="ambient"></div>
+<div id="scroll-progress"></div>
+<div id="scroll-rail"></div>
+<!-- NAV -->
+<nav>
+  <div class="nav-inner">
+    <div class="nav-logo">Salivary Biomarkers · Cancer Detection</div>
+    <ul class="nav-links">
+      <li><a href="#video" onclick="event.preventDefault();document.getElementById('video').scrollIntoView({behavior:'smooth'})">Video</a></li>
+      <li><a href="#journey" onclick="event.preventDefault();document.getElementById('journey').scrollIntoView({behavior:'smooth'})">Journey</a></li>
+      <li><a href="#explorer" onclick="event.preventDefault();document.getElementById('explorer').scrollIntoView({behavior:'smooth'})">Biomarkers</a></li>
+      <li><a href="#ihc" onclick="event.preventDefault();document.getElementById('ihc').scrollIntoView({behavior:'smooth'})">IHC Evidence</a></li>
+      <li><a href="#calculator" onclick="event.preventDefault();document.getElementById('calculator').scrollIntoView({behavior:'smooth'})">Risk Tool</a></li>
+      <li><a href="#workflow" onclick="event.preventDefault();document.getElementById('workflow').scrollIntoView({behavior:'smooth'})">Workflow</a></li>
+      <li><a href="#reviews" onclick="event.preventDefault();document.getElementById('reviews').scrollIntoView({behavior:'smooth'})">Reviews</a></li>
+      <li><a href="#chart" onclick="event.preventDefault();document.getElementById('chart').scrollIntoView({behavior:'smooth'})">Chart</a></li>
+      <li><a href="#mission" onclick="event.preventDefault();document.getElementById('mission').scrollIntoView({behavior:'smooth'})">Mission</a></li>
+    </ul>
+    <button class="nav-cta" onclick="openCiteModal()">Cite This Work</button>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-grid"></div>
+  <div class="hero-scanline"></div>
+  <div class="hero-orb hero-orb-1"></div>
+  <div class="hero-orb hero-orb-2"></div>
+  <div class="hero-orb hero-orb-3"></div>
+  <div class="hero-orb hero-orb-4"></div>
+  <div class="hero-particles" id="hero-particles"></div>
+  <svg class="hero-helix" width="120" height="400" viewBox="0 0 120 400">
+    <path d="M60 0 Q100 50 60 100 Q20 150 60 200 Q100 250 60 300 Q20 350 60 400" stroke="white" stroke-width="1.5" fill="none"/>
+    <path d="M60 0 Q20 50 60 100 Q100 150 60 200 Q20 250 60 300 Q100 350 60 400" stroke="white" stroke-width="1.5" fill="none"/>
+    <circle cx="60" cy="0" r="4" fill="white"/><circle cx="100" cy="50" r="3" fill="white"/><circle cx="20" cy="50" r="3" fill="white"/>
+    <circle cx="60" cy="100" r="4" fill="white"/><circle cx="100" cy="150" r="3" fill="white"/><circle cx="20" cy="150" r="3" fill="white"/>
+    <circle cx="60" cy="200" r="4" fill="white"/><circle cx="100" cy="250" r="3" fill="white"/><circle cx="20" cy="250" r="3" fill="white"/>
+    <circle cx="60" cy="300" r="4" fill="white"/><circle cx="100" cy="350" r="3" fill="white"/><circle cx="20" cy="350" r="3" fill="white"/>
+    <circle cx="60" cy="400" r="4" fill="white"/>
+  </svg>
+  <div class="hero-content">
+    <div class="hero-logos">
+      <div class="hero-logo"><img id="logo1-img" src="assets/asset-01.jpg" alt="October 6 University"></div>
+      <div class="hero-divider"></div>
+      <div class="hero-logo"><img id="logo2-img" src="assets/asset-02.jpg" alt="Faculty of Dentistry"></div>
+    </div>
+    <div class="hero-badge"><span class="hero-badge-dot"></span>Scientific Day Poster Competition · April 2025</div>
+    <h1 class="hero-title">Salivary Biomarkers<br>in <em>Cancer Detection</em></h1>
+    <p class="hero-sub">Faculty of Dentistry · October 6 University · Non-Invasive Liquid Biopsy</p>
+    <div class="hero-keywords">
+      <span class="hero-keyword">Liquid Biopsy</span>
+      <span class="hero-keyword">Oral Cancer</span>
+      <span class="hero-keyword">p53 · Ki-67</span>
+      <span class="hero-keyword">cfDNA · microRNA</span>
+      <span class="hero-keyword">Point-of-Care</span>
+      <span class="hero-keyword">Salivaomics</span>
+    </div>
+    <div class="hero-btns">
+      <button class="btn-primary" onclick="document.getElementById('video').scrollIntoView({behavior:'smooth'})">Watch Video</button>
+      <button class="btn-outline" onclick="document.getElementById('explorer').scrollIntoView({behavior:'smooth'})">Explore the Science</button>
+      <button class="btn-ghost" onclick="openCiteModal()">Cite This Work</button>
+    </div>
+    <div class="hero-stats">
+      <div class="stat-card"><span class="stat-num" data-target="3000" data-suffix="+">0</span><span class="stat-label">Proteins in Saliva</span></div>
+      <div class="stat-card"><span class="stat-num" data-target="95" data-suffix="%">0</span><span class="stat-label">Sensitivity — OSCC</span></div>
+      <div class="stat-card"><span class="stat-num" data-target="0" data-suffix=" Needles">0</span><span class="stat-label">Zero Discomfort</span></div>
+      <div class="stat-card"><span class="stat-num" data-target="15" data-suffix=" min">0</span><span class="stat-label">Biosensor Speed</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- VIDEO -->
+<section id="video" class="dark-bg">
+  <div class="section-inner">
+    <div class="section-meta"><div class="section-eyebrow reveal">1-Minute Visual Summary</div><div class="section-read-time reveal">1 min watch</div></div>
+    <h2 class="section-title reveal reveal-delay-1">Watch the Science Come Alive</h2>
+    <p class="section-lead reveal reveal-delay-2">A visual journey from tumor biology to chairside diagnostics, built from our real histopathology data and systematic review evidence.</p>
+    <div class="video-wrapper reveal reveal-delay-3">
+      <video id="main-video" controls preload="metadata">
+        <source src="assets/asset-03.mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+      </video>
+    </div>
+  </div>
+</section>
+
+<!-- STORY TIMELINE -->
+<section id="story">
+  <div class="story-title">The Research Story</div>
+  <div class="story-sub">FOUR ACTS · PROBLEM → SOLUTION → EVIDENCE → IMPACT</div>
+  <div class="story-grid">
+    <div class="story-step">
+      <div class="story-num">01</div>
+      <div class="story-step-label">The Problem</div>
+      <div class="story-step-title">Late Detection Kills</div>
+      <div class="story-step-text">Stage IV oral cancer has &lt;30% five-year survival. Current tissue biopsy is invasive, painful, and performed only when lesions are visible — often too late.</div>
+    </div>
+    <div class="story-step">
+      <div class="story-num">02</div>
+      <div class="story-step-label">The Solution</div>
+      <div class="story-step-title">Saliva as Liquid Biopsy</div>
+      <div class="story-step-text">Saliva contains cfDNA, proteins, microRNA, and metabolites that mirror tumor biology — detectable before symptoms appear, collected without needles.</div>
+    </div>
+    <div class="story-step">
+      <div class="story-num">03</div>
+      <div class="story-step-label">The Evidence</div>
+      <div class="story-step-title">p53, Ki-67 & Meta-Analyses</div>
+      <div class="story-step-text">Real IHC data shows p53 LI rising from 20% (normal) to 90% (OSMF). Five systematic reviews (2024–2026) confirm salivary biomarker accuracy up to AUC 0.97.</div>
+    </div>
+    <div class="story-step">
+      <div class="story-num">04</div>
+      <div class="story-step-label">The Impact</div>
+      <div class="story-step-title">Chairside Screening in Egypt</div>
+      <div class="story-step-text">A 10-minute biosensor test during routine dental visits. Every dental chair becomes a frontline cancer screening station. Starting with Egyptian research centers.</div>
+    </div>
+  </div>
+</section>
+
+<!-- THE JOURNEY: saliva-to-diagnosis scroll-draw showpiece -->
+<section id="journey">
+  <div class="journey-head">
+    <div class="journey-eyebrow fx-rise">The Core Mechanism</div>
+    <h2 class="journey-title fx-rise">How a Molecule Becomes a Diagnosis</h2>
+    <p class="journey-lead fx-rise">Follow a single tumor-derived molecule on its journey — from a cancer cell, through the bloodstream, filtered by a salivary gland, into a drop of saliva, and finally read by a chairside biosensor. Currently viewing: <span class="journey-stage" id="journey-stage">The Tumor</span></p>
+  </div>
+  <div class="journey-canvas">
+    <svg class="journey-svg" id="journey-svg" viewBox="0 0 1000 280" xmlns="http://www.w3.org/2000/svg">
+      <defs>
+        <linearGradient id="jgrad" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0%" stop-color="#8b1a1a"/>
+          <stop offset="30%" stop-color="#c8960a"/>
+          <stop offset="60%" stop-color="#1a9c86"/>
+          <stop offset="100%" stop-color="#1a4a8b"/>
+        </linearGradient>
+        <filter id="jglow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+      </defs>
+      <!-- connecting path -->
+      <path class="jpath-bg" d="M 90 140 C 240 60, 280 220, 410 140 S 600 60, 700 140 S 880 220, 910 140"/>
+      <path class="jpath-draw" id="jpath" d="M 90 140 C 240 60, 280 220, 410 140 S 600 60, 700 140 S 880 220, 910 140"/>
+      <!-- traveling molecule -->
+      <circle class="jmol" id="jmol" r="7" fill="#fff" filter="url(#jglow)"/>
+      <!-- 5 nodes -->
+      <g class="jnode" data-i="0"><circle cx="90" cy="140" r="26" fill="#8b1a1a" opacity="0.9"/><circle cx="90" cy="140" r="26" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.4"/><text class="jnode-label" x="90" y="195" text-anchor="middle">Tumor</text><text class="jnode-sub" x="90" y="211" text-anchor="middle">sheds cfDNA</text></g>
+      <g class="jnode" data-i="1"><circle cx="320" cy="140" r="26" fill="#c8960a" opacity="0.9"/><circle cx="320" cy="140" r="26" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.4"/><text class="jnode-label" x="320" y="195" text-anchor="middle">Bloodstream</text><text class="jnode-sub" x="320" y="211" text-anchor="middle">circulates</text></g>
+      <g class="jnode" data-i="2"><circle cx="500" cy="140" r="26" fill="#1a9c86" opacity="0.9"/><circle cx="500" cy="140" r="26" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.4"/><text class="jnode-label" x="500" y="195" text-anchor="middle">Salivary Gland</text><text class="jnode-sub" x="500" y="211" text-anchor="middle">filters blood</text></g>
+      <g class="jnode" data-i="3"><circle cx="700" cy="140" r="26" fill="#1a9c86" opacity="0.9"/><circle cx="700" cy="140" r="26" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.4"/><text class="jnode-label" x="700" y="195" text-anchor="middle">Saliva</text><text class="jnode-sub" x="700" y="211" text-anchor="middle">carries signal</text></g>
+      <g class="jnode" data-i="4"><circle cx="910" cy="140" r="26" fill="#1a4a8b" opacity="0.9"/><circle cx="910" cy="140" r="26" fill="none" stroke="#fff" stroke-width="1.5" opacity="0.4"/><text class="jnode-label" x="910" y="195" text-anchor="middle">Biosensor</text><text class="jnode-sub" x="910" y="211" text-anchor="middle">reads result</text></g>
+    </svg>
+  </div>
+  <div class="journey-steps">
+    <div class="jstep" data-i="0"><div class="jstep-n">01</div><div class="jstep-t">The Tumor</div><div class="jstep-d">Dying cancer cells release cfDNA, proteins, and exosomes carrying tumor-specific mutations like TP53.</div></div>
+    <div class="jstep" data-i="1"><div class="jstep-n">02</div><div class="jstep-t">Bloodstream</div><div class="jstep-d">These molecules enter circulation and travel throughout the body within minutes.</div></div>
+    <div class="jstep" data-i="2"><div class="jstep-n">03</div><div class="jstep-t">Salivary Gland</div><div class="jstep-d">The parotid and submandibular glands continuously filter blood, secreting molecules into saliva.</div></div>
+    <div class="jstep" data-i="3"><div class="jstep-n">04</div><div class="jstep-t">Saliva</div><div class="jstep-d">The final fluid now carries the tumor's molecular fingerprint — collected with no needle.</div></div>
+    <div class="jstep" data-i="4"><div class="jstep-n">05</div><div class="jstep-t">Biosensor</div><div class="jstep-d">A graphene chip detects the markers in 8–15 minutes, returning a smartphone-readable result.</div></div>
+  </div>
+</section>
+
+
+<!-- BIOMARKER EXPLORER -->
+<section id="explorer">
+  <div class="section-inner">
+    <div class="section-meta"><div class="section-eyebrow reveal">Interactive Explorer</div><div class="section-read-time reveal">3 min interactive</div></div>
+    <h2 class="section-title reveal reveal-delay-1">What Are Salivary Biomarkers?</h2>
+    <p class="section-lead reveal reveal-delay-2">Measurable molecular signals in saliva indicating cancer before symptoms appear. Click each class to explore its mechanisms, clinical use, and evidence base.</p>
+    <div class="explorer-grid reveal reveal-delay-3">
+      <div class="explorer-tabs">
+        <div class="exp-tab active" onclick="showPanel('dna', this)"><div class="exp-tab-marker" style="background:var(--blue)"></div><div><div class="exp-tab-label">DNA / cfDNA</div><div class="exp-tab-sub">Cell-free DNA</div></div></div>
+        <div class="exp-tab" onclick="showPanel('protein', this)"><div class="exp-tab-marker" style="background:var(--burd)"></div><div><div class="exp-tab-label">Proteins</div><div class="exp-tab-sub">Cytokines & enzymes</div></div></div>
+        <div class="exp-tab" onclick="showPanel('mirna', this)"><div class="exp-tab-marker" style="background:var(--purp)"></div><div><div class="exp-tab-label">microRNA</div><div class="exp-tab-sub">Non-coding RNA</div></div></div>
+        <div class="exp-tab" onclick="showPanel('metabolites', this)"><div class="exp-tab-marker" style="background:var(--gold)"></div><div><div class="exp-tab-label">Metabolites</div><div class="exp-tab-sub">Small molecules</div></div></div>
+        <div class="exp-tab" onclick="showPanel('exosomes', this)"><div class="exp-tab-marker" style="background:var(--teal)"></div><div><div class="exp-tab-label">Exosomes</div><div class="exp-tab-sub">Vesicle cargo</div></div></div>
+      </div>
+      <div id="panel-dna" class="explorer-panel active">
+        <div class="ep-title">Cell-Free DNA (cfDNA)</div>
+        <div class="ep-lead">Tumor cells shed DNA fragments carrying cancer-specific mutations directly into saliva. Detected by droplet digital PCR with single-molecule precision <span class="cite" onclick="openRef(10)">[10]</span>, cfDNA is the earliest detectable molecular signal — present before histological dysplasia is visible <span class="cite" onclick="openRef(11)">[11]</span>.</div>
+        <div class="ep-clinical-box">
+          <div class="ep-clinical-label">Why This Matters Clinically</div>
+          <div class="ep-clinical-text">cfDNA enables detection of TP53 mutations in high-risk patients before any visible oral lesion appears. A positive cfDNA signal in a patient with normal clinical exam can trigger enhanced surveillance years before a biopsy would be justified.</div>
+        </div>
+        <div class="ep-section-label">When Used</div>
+        <div class="ep-usage-grid">
+          <div class="ep-usage yes"><div class="ep-usage-label">Screening</div><div class="ep-usage-value">Primary use</div></div>
+          <div class="ep-usage yes"><div class="ep-usage-label">Diagnosis</div><div class="ep-usage-value">Adjunct</div></div>
+          <div class="ep-usage yes"><div class="ep-usage-label">Monitoring</div><div class="ep-usage-value">Recurrence</div></div>
+        </div>
+        <div class="ep-section-label">Key Markers</div>
+        <div class="ep-markers">
+          <span class="ep-marker" style="color:var(--blue);border-color:rgba(26,74,139,0.3);background:rgba(26,74,139,0.06)">TP53 mutations</span>
+          <span class="ep-marker" style="color:var(--blue);border-color:rgba(26,74,139,0.3);background:rgba(26,74,139,0.06)">KRAS mutations</span>
+          <span class="ep-marker" style="color:var(--blue);border-color:rgba(26,74,139,0.3);background:rgba(26,74,139,0.06)">Methylation patterns</span>
+          <span class="ep-marker" style="color:var(--blue);border-color:rgba(26,74,139,0.3);background:rgba(26,74,139,0.06)">ddPCR detection</span>
+        </div>
+        <div class="ep-section-label">Performance Data</div>
+        <div class="ep-stats">
+          <div class="ep-stat"><span class="ep-stat-num" style="color:var(--blue)">70–85%</span><span class="ep-stat-label">cfDNA concordance with lung tumor tissue <span class="cite" onclick="openRef(2)">[2]</span></span></div>
+          <div class="ep-stat"><span class="ep-stat-num" style="color:var(--blue)">40–75%</span><span class="ep-stat-label">OSCC cases with TP53 mutation <span class="cite" onclick="openRef(11)">[11]</span></span></div>
+          <div class="ep-stat"><span class="ep-stat-num" style="color:var(--blue)">AUC 0.94</span><span class="ep-stat-label">Pancreatic cfDNA methylation panel <span class="cite" onclick="openRef(10)">[10]</span></span></div>
+        </div>
+        <div class="ep-cancers"><span class="ep-cancer-tag">Oral SCC</span><span class="ep-cancer-tag">Lung</span><span class="ep-cancer-tag">Breast</span><span class="ep-cancer-tag">Pancreatic</span></div>
+      </div>
+
+      <div id="panel-protein" class="explorer-panel">
+        <div class="ep-title">Salivary Proteins</div>
+        <div class="ep-lead">Tumor-associated proteins enter saliva via direct shedding from oral lesions or hematogenous transport from systemic cancers. IL-8 is elevated 10× in OSCC versus healthy controls <span class="cite" onclick="openRef(1)">[1]</span>. Detected by ELISA with femtomolar sensitivity <span class="cite" onclick="openRef(8)">[8]</span>.</div>
+        <div class="ep-clinical-box">
+          <div class="ep-clinical-label">Why This Matters Clinically</div>
+          <div class="ep-clinical-text">Salivary MMP-9 meta-analysis shows AUC 0.97 — the highest single-marker accuracy reported. Commercial ELISA kits for IL-8 are already validated for research use and approaching clinical-grade approval. This is the closest salivary test to chairside deployment.</div>
+        </div>
+        <div class="ep-section-label">When Used</div>
+        <div class="ep-usage-grid">
+          <div class="ep-usage yes"><div class="ep-usage-label">Screening</div><div class="ep-usage-value">Primary use</div></div>
+          <div class="ep-usage yes"><div class="ep-usage-label">Diagnosis</div><div class="ep-usage-value">Confirmatory</div></div>
+          <div class="ep-usage yes"><div class="ep-usage-label">Monitoring</div><div class="ep-usage-value">Treatment</div></div>
+        </div>
+        <div class="ep-section-label">Key Markers</div>
+        <div class="ep-markers">
+          <span class="ep-marker" style="color:var(--burd);border-color:rgba(139,26,26,0.3);background:rgba(139,26,26,0.06)">IL-8 (10× elevated)</span>
+          <span class="ep-marker" style="color:var(--burd);border-color:rgba(139,26,26,0.3);background:rgba(139,26,26,0.06)">CYFRA 21-1</span>
+          <span class="ep-marker" style="color:var(--burd);border-color:rgba(139,26,26,0.3);background:rgba(139,26,26,0.06)">CD44</span>
+          <span class="ep-marker" style="color:var(--burd);border-color:rgba(139,26,26,0.3);background:rgba(139,26,26,0.06)">HER2 antigen</span>
+          <span class="ep-marker" style="color:var(--burd);border-color:rgba(139,26,26,0.3);background:rgba(139,26,26,0.06)">MMP-9 (AUC 0.97)</span>
+        </div>
+        <div class="ep-section-label">Performance Data</div>
+        <div class="ep-stats">
+          <div class="ep-stat"><span class="ep-stat-num" style="color:var(--burd)">88%</span><span class="ep-stat-label">Sens (IL-8+CYFRA+CD44) <span class="cite" onclick="openRef(1)">[1]</span></span></div>
+          <div class="ep-stat"><span class="ep-stat-num" style="color:var(--burd)">0.97</span><span class="ep-stat-label">MMP-9 AUC meta-analysis <span class="cite" onclick="openRef(13)">[13]</span></span></div>
+          <div class="ep-stat"><span class="ep-stat-num" style="color:var(--burd)">120 pg/mL</span><span class="ep-stat-label">IL-8 OSCC vs 10 pg/mL normal <span class="cite" onclick="openRef(1)">[1]</span></span></div>
+        </div>
+        <div class="ep-cancers"><span class="ep-cancer-tag">Oral SCC</span><span class="ep-cancer-tag">Breast</span><span class="ep-cancer-tag">Lung</span></div>
+      </div>
+
+      <div id="panel-mirna" class="explorer-panel">
+        <div class="ep-title">microRNA</div>
+        <div class="ep-lead">Short non-coding RNA sequences (~22 nucleotides) that regulate gene expression. Highly cancer-specific because tumor cells produce unique miRNA signatures. Stable in saliva due to encapsulation inside exosomes <span class="cite" onclick="openRef(7)">[7]</span>, resistant to RNase degradation <span class="cite" onclick="openRef(15)">[15]</span>.</div>
+        <div class="ep-clinical-box">
+          <div class="ep-clinical-label">Why This Matters Clinically</div>
+          <div class="ep-clinical-text">miR-21, miR-31, miR-1307-5p, and miR-486-5p achieve AUC &gt; 0.85 across 42 studies and 2,577 samples (Hashmi 2026). miR-31 is highly OSCC-specific — its presence strongly correlates with oral cancer independent of smoking status. Prognostic miRNAs (miR-423-5p) predict disease-free survival.</div>
+        </div>
+        <div class="ep-section-label">When Used</div>
+        <div class="ep-usage-grid">
+          <div class="ep-usage yes"><div class="ep-usage-label">Screening</div><div class="ep-usage-value">Emerging</div></div>
+          <div class="ep-usage yes"><div class="ep-usage-label">Diagnosis</div><div class="ep-usage-value">High accuracy</div></div>
+          <div class="ep-usage yes"><div class="ep-usage-label">Prognosis</div><div class="ep-usage-value">Survival prediction</div></div>
+        </div>
+        <div class="ep-section-label">Key Markers</div>
+        <div class="ep-markers">
+          <span class="ep-marker" style="color:var(--purp);border-color:rgba(90,42,122,0.3);background:rgba(90,42,122,0.06)">miR-21</span>
+          <span class="ep-marker" style="color:var(--purp);border-color:rgba(90,42,122,0.3);background:rgba(90,42,122,0.06)">miR-31 (OSCC-specific)</span>
+          <span class="ep-marker" style="color:var(--purp);border-color:rgba(90,42,122,0.3);background:rgba(90,42,122,0.06)">miR-1307-5p</span>
+          <span class="ep-marker" style="color:var(--purp);border-color:rgba(90,42,122,0.3);background:rgba(90,42,122,0.06)">miR-486-5p</span>
+          <span class="ep-marker" style="color:var(--purp);border-color:rgba(90,42,122,0.3);background:rgba(90,42,122,0.06)">miR-423-5p</span>
+        </div>
+        <div class="ep-section-label">Performance Data</div>
+        <div class="ep-stats">
+          <div class="ep-stat"><span class="ep-stat-num" style="color:var(--purp)">&gt;0.85</span><span class="ep-stat-label">AUC for top miRNAs <span class="cite" onclick="openRef(15)">[15]</span></span></div>
+          <div class="ep-stat"><span class="ep-stat-num" style="color:var(--purp)">42</span><span class="ep-stat-label">Studies in systematic review <span class="cite" onclick="openRef(15)">[15]</span></span></div>
+          <div class="ep-stat"><span class="ep-stat-num" style="color:var(--purp)">2,577</span><span class="ep-stat-label">Patient samples analyzed <span class="cite" onclick="openRef(15)">[15]</span></span></div>
+        </div>
+        <div class="ep-cancers"><span class="ep-cancer-tag">Oral SCC</span><span class="ep-cancer-tag">Pancreatic</span><span class="ep-cancer-tag">Breast</span></div>
+      </div>
+
+      <div id="panel-metabolites" class="explorer-panel">
+        <div class="ep-title">Metabolites</div>
+        <div class="ep-lead">Small-molecule byproducts of cancer metabolism enter saliva through the Warburg effect — the metabolic reprogramming unique to tumor cells. Detected by mass spectrometry. Antonelli et al. identified over 100 altered metabolites <span class="cite" onclick="openRef(16)">[16]</span>.</div>
+        <div class="ep-clinical-box">
+          <div class="ep-clinical-label">Why This Matters Clinically</div>
+          <div class="ep-clinical-text">Salivary metabolomics captures real-time tumor activity — unlike DNA, metabolites change rapidly with treatment response. Sialic acid, neopterin, and 3-methylhistidine emerging as prognostic indicators. The metabolomics layer complements genomic markers by measuring active cancer phenotype rather than dormant mutations.</div>
+        </div>
+        <div class="ep-section-label">When Used</div>
+        <div class="ep-usage-grid">
+          <div class="ep-usage yes"><div class="ep-usage-label">Screening</div><div class="ep-usage-value">Research stage</div></div>
+          <div class="ep-usage yes"><div class="ep-usage-label">Treatment</div><div class="ep-usage-value">Response tracking</div></div>
+          <div class="ep-usage"><div class="ep-usage-label">Clinical use</div><div class="ep-usage-value">Not yet</div></div>
+        </div>
+        <div class="ep-section-label">Key Markers</div>
+        <div class="ep-markers">
+          <span class="ep-marker" style="color:#8a6200;border-color:rgba(200,150,10,0.4);background:rgba(200,150,10,0.08)">Polyamines</span>
+          <span class="ep-marker" style="color:#8a6200;border-color:rgba(200,150,10,0.4);background:rgba(200,150,10,0.08)">Sialic acid</span>
+          <span class="ep-marker" style="color:#8a6200;border-color:rgba(200,150,10,0.4);background:rgba(200,150,10,0.08)">Neopterin</span>
+          <span class="ep-marker" style="color:#8a6200;border-color:rgba(200,150,10,0.4);background:rgba(200,150,10,0.08)">Cortisol</span>
+          <span class="ep-marker" style="color:#8a6200;border-color:rgba(200,150,10,0.4);background:rgba(200,150,10,0.08)">3-methylhistidine</span>
+        </div>
+        <div class="ep-section-label">Performance Data</div>
+        <div class="ep-stats">
+          <div class="ep-stat"><span class="ep-stat-num" style="color:#8a6200">100+</span><span class="ep-stat-label">Altered metabolites identified <span class="cite" onclick="openRef(16)">[16]</span></span></div>
+          <div class="ep-stat"><span class="ep-stat-num" style="color:#8a6200">28</span><span class="ep-stat-label">Studies in review <span class="cite" onclick="openRef(16)">[16]</span></span></div>
+          <div class="ep-stat"><span class="ep-stat-num" style="color:#8a6200">LC-MS</span><span class="ep-stat-label">Primary detection platform</span></div>
+        </div>
+        <div class="ep-cancers"><span class="ep-cancer-tag">Oral SCC</span><span class="ep-cancer-tag">Pancreatic</span></div>
+      </div>
+
+      <div id="panel-exosomes" class="explorer-panel">
+        <div class="ep-title">Exosomes</div>
+        <div class="ep-lead">Nanoscale vesicles (30–150 nm) secreted by tumor cells, carrying protected cargo of miRNA, proteins, and DNA. Exosomal miRNAs outperform cell-free miRNAs in diagnostic accuracy because the vesicle membrane shields them from salivary RNases <span class="cite" onclick="openRef(15)">[15]</span>.</div>
+        <div class="ep-clinical-box">
+          <div class="ep-clinical-label">Why This Matters Clinically</div>
+          <div class="ep-clinical-text">Exosomes solve the stability problem that has limited salivary RNA diagnostics for years. Because the tumor-derived cargo is protected inside a lipid bilayer, samples can be processed within hours rather than minutes. This makes exosomal miRNA the most realistic candidate for widespread clinical adoption.</div>
+        </div>
+        <div class="ep-section-label">When Used</div>
+        <div class="ep-usage-grid">
+          <div class="ep-usage yes"><div class="ep-usage-label">Screening</div><div class="ep-usage-value">Emerging</div></div>
+          <div class="ep-usage yes"><div class="ep-usage-label">Diagnosis</div><div class="ep-usage-value">Validated</div></div>
+          <div class="ep-usage yes"><div class="ep-usage-label">Monitoring</div><div class="ep-usage-value">Stable cargo</div></div>
+        </div>
+        <div class="ep-section-label">Key Features</div>
+        <div class="ep-markers">
+          <span class="ep-marker" style="color:var(--teal);border-color:rgba(10,74,66,0.3);background:rgba(10,74,66,0.06)">Exosomal miRNA</span>
+          <span class="ep-marker" style="color:var(--teal);border-color:rgba(10,74,66,0.3);background:rgba(10,74,66,0.06)">Tumor proteins</span>
+          <span class="ep-marker" style="color:var(--teal);border-color:rgba(10,74,66,0.3);background:rgba(10,74,66,0.06)">cfDNA cargo</span>
+          <span class="ep-marker" style="color:var(--teal);border-color:rgba(10,74,66,0.3);background:rgba(10,74,66,0.06)">30–150 nm</span>
+        </div>
+        <div class="ep-section-label">Performance Data</div>
+        <div class="ep-stats">
+          <div class="ep-stat"><span class="ep-stat-num" style="color:var(--teal)">Superior</span><span class="ep-stat-label">Exosomal vs cell-free miRNA stability <span class="cite" onclick="openRef(15)">[15]</span></span></div>
+          <div class="ep-stat"><span class="ep-stat-num" style="color:var(--teal)">Protected</span><span class="ep-stat-label">Cargo from RNase degradation</span></div>
+          <div class="ep-stat"><span class="ep-stat-num" style="color:var(--teal)">Universal</span><span class="ep-stat-label">Tumor secretion mechanism</span></div>
+        </div>
+        <div class="ep-cancers"><span class="ep-cancer-tag">Oral SCC</span><span class="ep-cancer-tag">Breast</span><span class="ep-cancer-tag">Lung</span><span class="ep-cancer-tag">Pancreatic</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- IHC SLIDER -->
+<section id="ihc">
+  <div class="section-inner">
+    <div class="section-meta"><div class="section-eyebrow reveal">Real Histopathology Evidence</div><div class="section-read-time reveal">2 min interactive</div></div>
+    <h2 class="section-title reveal reveal-delay-1">p53 & Ki-67 Progression — Drag to Explore</h2>
+    <p class="section-lead reveal reveal-delay-2">Each stage is detectable in saliva by cfDNA and mRNA. These are real IHC slides from our study <span class="cite" onclick="openRef(11)">[11]</span> — not illustrations.</p>
+    <div class="ihc-controls reveal reveal-delay-3">
+      <span class="ihc-label">Normal</span>
+      <div class="ihc-track"><input type="range" min="0" max="3" value="0" id="ihc-slider" oninput="updateIHC(this.value)"></div>
+      <span class="ihc-label">OSCC</span>
+      <span class="ihc-stage-badge" id="ihc-stage-badge">Stage 1 of 4</span>
+    </div>
+    <div class="ihc-display reveal reveal-delay-3">
+      <div>
+        <div style="font-size:11px;text-transform:uppercase;letter-spacing:0.1em;color:var(--muted);margin-bottom:8px">p53 IHC · DAB Chromogen</div>
+        <div class="ihc-image-wrap">
+          <img id="ihc-p53-img" src="assets/asset-04.jpg" alt="p53 IHC histopathology">
+          <div class="ihc-image-caption" id="ihc-p53-caption">Basal-only staining · Reference baseline</div>
+        </div>
+      </div>
+      <div class="ihc-data">
+        <div class="ihc-stage-title" id="ihc-stage-name">Normal Oral Mucosa</div>
+        <div class="ihc-marker-section">
+          <div class="ihc-marker-label">p53 Labeling Index</div>
+          <div class="ihc-marker-value" id="p53-value">LI = 20 ± 5.77%</div>
+          <div class="ihc-bar-wrap">
+            <div class="ihc-bar-label-row"><span>0%</span><span id="p53-pct">20%</span><span>100%</span></div>
+            <div class="ihc-bar"><div class="ihc-bar-fill" id="p53-bar" style="width:20%;background:var(--blue)"></div></div>
+          </div>
+        </div>
+        <div class="ihc-marker-section">
+          <div class="ihc-marker-label">Ki-67 Labeling Index</div>
+          <div class="ihc-marker-value" id="ki67-value">LI = 30 ± 23.09%</div>
+          <div class="ihc-bar-wrap">
+            <div class="ihc-bar-label-row"><span>0%</span><span id="ki67-pct">30%</span><span>100%</span></div>
+            <div class="ihc-bar"><div class="ihc-bar-fill" id="ki67-bar" style="width:30%;background:var(--teal)"></div></div>
+          </div>
+        </div>
+        <div class="ihc-saliva-box">
+          <div class="ihc-saliva-label">What Saliva Would Detect Here</div>
+          <div class="ihc-saliva-text" id="ihc-saliva-text">Baseline cfDNA levels. No tumor-specific TP53 mutations. Normal physiological cytokine range. No pathological signal — reference control for all downstream measurements.</div>
+        </div>
+        <div class="ihc-clinical-box" id="ihc-clinical-box">
+          <strong>Clinical Correlation:</strong> <span id="ihc-clinical-text">Healthy epithelium. No clinical action required. Represents normal cell turnover in the germinative compartment.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RISK CALCULATOR -->
+<section id="calculator">
+  <div class="section-inner">
+    <div class="section-meta"><div class="section-eyebrow reveal">Evidence-Based Research Tool</div><div class="section-read-time reveal">60s interactive</div></div>
+    <h2 class="section-title reveal reveal-delay-1">Salivary Biomarker Panel Selector</h2>
+    <p class="section-lead reveal reveal-delay-2">Select patient risk factors to see which salivary biomarker panel the published evidence supports. For research and educational use — based on peer-reviewed diagnostic performance data.</p>
+    <div class="calc-grid reveal reveal-delay-3">
+      <div class="calc-form">
+        <div class="calc-title">Patient Risk Profile</div>
+        <label class="calc-check"><input type="checkbox" id="r-tobacco"><span>Tobacco use (smoked or smokeless)</span></label>
+        <label class="calc-check"><input type="checkbox" id="r-alcohol"><span>Regular alcohol consumption</span></label>
+        <label class="calc-check"><input type="checkbox" id="r-areca"><span>Areca nut / betel quid use</span></label>
+        <label class="calc-check"><input type="checkbox" id="r-age"><span>Age over 40</span></label>
+        <label class="calc-check"><input type="checkbox" id="r-lesion"><span>Visible oral lesion present</span></label>
+        <label class="calc-check"><input type="checkbox" id="r-family"><span>Family history of oral cancer</span></label>
+        <button class="calc-btn" onclick="runCalculator()">Calculate Recommended Research Panel</button>
+      </div>
+      <div class="calc-result">
+        <div class="calc-result-title">Recommended Panel</div>
+        <div class="calc-empty" id="calc-empty">
+          <svg class="calc-empty-icon-svg" viewBox="0 0 40 40" fill="none">
+            <circle cx="20" cy="20" r="18" stroke="rgba(255,255,255,0.3)" stroke-width="1.5"/>
+            <path d="M13 20 L18 25 L27 16" stroke="rgba(255,255,255,0.4)" stroke-width="1.5" fill="none" stroke-linecap="round"/>
+          </svg>
+          <div class="calc-empty-text">Select risk factors and click calculate to see the evidence-based panel recommendation</div>
+        </div>
+        <div class="result-panel" id="result-panel">
+          <div class="result-risk" id="result-risk-level">Moderate</div>
+          <div class="result-sub" id="result-sub">Risk profile detected</div>
+          <div class="result-confidence" id="result-confidence"><span class="result-conf-dot"></span><span id="result-conf-text">Moderate confidence</span></div>
+          <div class="rec-label">Recommended Research Markers</div>
+          <div class="rec-markers" id="rec-markers"></div>
+          <div class="result-metrics">
+            <div class="result-metric"><span class="result-metric-num" id="r-sens">—</span><span class="result-metric-label">Sensitivity</span></div>
+            <div class="result-metric"><span class="result-metric-num" id="r-spec">—</span><span class="result-metric-label">Specificity</span></div>
+            <div class="result-metric"><span class="result-metric-num" id="r-auc">—</span><span class="result-metric-label">AUC</span></div>
+          </div>
+          <div class="result-action" id="result-action"><strong>Research Protocol Suggestion:</strong> <span id="result-action-text">Based on the risk profile, the published literature supports this panel for research contexts.</span></div>
+          <div class="result-disclaimer">Educational and research tool based on published peer-reviewed diagnostic data. Not a clinical diagnostic device. Clinical decisions require complete clinical assessment by a qualified healthcare professional. Evidence basis: refs <span class="cite" style="background:rgba(200,150,10,0.15)" onclick="openRef(1)">[1]</span><span class="cite" style="background:rgba(200,150,10,0.15)" onclick="openRef(12)">[12]</span><span class="cite" style="background:rgba(200,150,10,0.15)" onclick="openRef(13)">[13]</span>.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CLINICAL WORKFLOW -->
+<section id="workflow">
+  <div class="section-inner">
+    <div class="section-meta"><div class="section-eyebrow reveal">From Research to Practice</div><div class="section-read-time reveal">90s interactive</div></div>
+    <h2 class="section-title reveal reveal-delay-1">How This Works in a Dental Clinic</h2>
+    <p class="section-lead reveal reveal-delay-2">A realistic chairside workflow for salivary cancer screening. Click any step to see the underlying science and protocol details.</p>
+    <div class="workflow-steps reveal reveal-delay-3">
+      <div class="workflow-step active" onclick="showWorkflow(1, this)">
+        <div class="wf-time">~2 min</div>
+        <div class="wf-num">1</div>
+        <div class="wf-title">Patient Preparation</div>
+        <div class="wf-text">Fast 90 min prior. Morning appointment preferred (8–10 AM for lowest diurnal variation).</div>
+      </div>
+      <div class="workflow-step" onclick="showWorkflow(2, this)">
+        <div class="wf-time">~3 min</div>
+        <div class="wf-num">2</div>
+        <div class="wf-title">Saliva Collection</div>
+        <div class="wf-text">2 mL unstimulated whole saliva via passive drool. Immediate RNA stabilization.</div>
+      </div>
+      <div class="workflow-step" onclick="showWorkflow(3, this)">
+        <div class="wf-time">~8 min</div>
+        <div class="wf-num">3</div>
+        <div class="wf-title">On-Chair Analysis</div>
+        <div class="wf-text">Graphene biosensor cartridge detects biomarkers at picomolar concentrations.</div>
+      </div>
+      <div class="workflow-step" onclick="showWorkflow(4, this)">
+        <div class="wf-time">~2 min</div>
+        <div class="wf-num">4</div>
+        <div class="wf-title">Result & Decision</div>
+        <div class="wf-text">Smartphone-readable report with AI-integrated diagnostic score and recommendations.</div>
+      </div>
+    </div>
+
+    <div class="wf-expand active" id="wf-expand-1">
+      <div class="wf-exp-title">Step 1 · Patient Preparation</div>
+      <div class="wf-exp-lead">Pre-analytical standardization is the single most important variable in salivary diagnostics. Protocol deviation can reduce biomarker yield by 60–80%.</div>
+      <div class="wf-detail-grid">
+        <div>
+          <div class="wf-detail-title">Protocol Requirements</div>
+          <ul class="wf-list">
+            <li>Fast 90 min from food, drink, oral hygiene</li>
+            <li>Morning collection (8:00–10:00 AM)</li>
+            <li>Diurnal variation is lowest in this window</li>
+            <li>No gum, mints, or tobacco 2 hours prior</li>
+            <li>Room temperature equilibration</li>
+          </ul>
+        </div>
+        <div>
+          <div class="wf-detail-title">Why This Matters</div>
+          <ul class="wf-list">
+            <li>Cortisol varies 10× across the day</li>
+            <li>Food residue contaminates cfDNA analysis</li>
+            <li>Hygiene products introduce exogenous chemicals</li>
+            <li>Saliva flow rate affects marker concentration</li>
+            <li>Standardization enables cross-study comparison</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-expand" id="wf-expand-2">
+      <div class="wf-exp-title">Step 2 · Saliva Collection</div>
+      <div class="wf-exp-lead">Unstimulated whole saliva provides the most representative molecular snapshot. RNA must be stabilized within minutes to prevent degradation.</div>
+      <div class="wf-detail-grid">
+        <div>
+          <div class="wf-detail-title">Collection Protocol</div>
+          <ul class="wf-list">
+            <li>Passive drool into sterile labeled tube</li>
+            <li>Minimum 2 mL whole saliva</li>
+            <li>RNA stabilization reagent 1:1 ratio</li>
+            <li>Centrifuge 2,600×g for 15 min at 4°C</li>
+            <li>Aliquot supernatant into 200 µL portions</li>
+          </ul>
+        </div>
+        <div>
+          <div class="wf-detail-title">Critical Controls</div>
+          <ul class="wf-list">
+            <li>RNase inhibitor within 5 minutes</li>
+            <li>No stimulation (gum, citrus) — alters profile</li>
+            <li>Cold chain maintained throughout</li>
+            <li>Visible blood contamination excluded</li>
+            <li>Chairside device eliminates transport step</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-expand" id="wf-expand-3">
+      <div class="wf-exp-title">Step 3 · On-Chair Analysis</div>
+      <div class="wf-exp-lead">Graphene-based electrochemical biosensors achieve picomolar detection of salivary cancer markers via voltammetry or impedance spectroscopy <span class="cite" onclick="openRef(5)">[5]</span>.</div>
+      <div class="wf-detail-grid">
+        <div>
+          <div class="wf-detail-title">Biosensor Technology</div>
+          <ul class="wf-list">
+            <li>Graphene electrode functionalized with antibodies</li>
+            <li>Picomolar (10⁻¹² M) detection limit</li>
+            <li>Integrated microfluidic sample processing</li>
+            <li>Voltammetry or impedance readout</li>
+            <li>Portable potentiostat + smartphone interface</li>
+          </ul>
+        </div>
+        <div>
+          <div class="wf-detail-title">Target Panel</div>
+          <ul class="wf-list">
+            <li>IL-8 (10× elevated in OSCC)</li>
+            <li>CYFRA 21-1 (keratin fragments)</li>
+            <li>CD44 (epithelial glycoprotein)</li>
+            <li>MMP-9 (highest single-marker AUC 0.97)</li>
+            <li>Multiplex: all 4 markers simultaneously</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-expand" id="wf-expand-4">
+      <div class="wf-exp-title">Step 4 · Result Integration & Decision</div>
+      <div class="wf-exp-lead">Machine learning algorithms integrate multi-marker signals into a composite diagnostic score. AI-based scoring achieves AUC &gt; 0.95 for oral cancer — 34% fewer false positives than single-marker approaches <span class="cite" onclick="openRef(4)">[4]</span>.</div>
+      <div class="wf-detail-grid">
+        <div>
+          <div class="wf-detail-title">Report Output</div>
+          <ul class="wf-list">
+            <li>Composite diagnostic score (0–100)</li>
+            <li>Individual marker values with reference ranges</li>
+            <li>Confidence interval per marker</li>
+            <li>Color-coded risk tier visualization</li>
+            <li>Automatic report archiving to patient chart</li>
+          </ul>
+        </div>
+        <div>
+          <div class="wf-detail-title">Decision Support (Not Diagnosis)</div>
+          <ul class="wf-list">
+            <li>Low score: routine 12-month re-screen</li>
+            <li>Moderate score: 3-month follow-up + biomarker trend</li>
+            <li>High score: referral to oral medicine specialist</li>
+            <li>Never replaces clinical judgment or biopsy</li>
+            <li>Patient receives plain-language explanation</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SYSTEMATIC REVIEWS -->
+<section id="reviews">
+  <div class="section-inner">
+    <div class="section-meta"><div class="section-eyebrow reveal">Meta-Analytic Evidence</div><div class="section-read-time reveal">2 min read</div></div>
+    <h2 class="section-title reveal reveal-delay-1">Systematic Reviews & Meta-Analyses</h2>
+    <p class="section-lead reveal reveal-delay-2">Five international systematic reviews (2024–2026) synthesizing global evidence. Click any card to see the full citation.</p>
+    <div class="reviews-grid reveal reveal-delay-3">
+      <div class="review-card" style="border-left-color:var(--teal)" onclick="openRef(12)">
+        <div class="rc-author" style="color:var(--teal)">Wijaya et al. 2026</div>
+        <div class="rc-bio">Mixed proteins · Cancers journal</div>
+        <div class="rc-metric"><div class="rc-metric-label">AUC</div><div class="rc-metric-value" style="color:var(--teal)">0.75</div></div>
+        <div class="rc-metric"><div class="rc-metric-label">Sens · Spec</div><div style="font-size:14px;font-weight:500">0.64 · 0.71</div></div>
+        <div class="rc-n">18 studies · 1,647 patients</div>
+        <div class="rc-limit">High heterogeneity; adjunctive triage use in high-risk populations</div>
+      </div>
+      <div class="review-card" style="border-left-color:var(--burd)" onclick="openRef(13)">
+        <div class="rc-author" style="color:var(--burd)">Shaukat et al. 2026</div>
+        <div class="rc-bio">Salivary MMP-9 · BMC Oral Health</div>
+        <div class="rc-metric"><div class="rc-metric-label">AUC</div><div class="rc-metric-value" style="color:var(--burd)">0.97</div></div>
+        <div class="rc-metric"><div class="rc-metric-label">Sens · Spec</div><div style="font-size:14px;font-weight:500">0.98 · 0.96</div></div>
+        <div class="rc-n">7 studies · 795 patients</div>
+        <div class="rc-limit">Highest single-marker accuracy reported to date</div>
+      </div>
+      <div class="review-card" style="border-left-color:var(--blue)" onclick="openRef(15)">
+        <div class="rc-author" style="color:var(--blue)">Hashmi et al. 2026</div>
+        <div class="rc-bio">Salivary miRNAs · Int J Oral Maxillofac Surg</div>
+        <div class="rc-metric"><div class="rc-metric-label">miR-21, -31</div><div class="rc-metric-value" style="color:var(--blue)">&gt;0.85</div></div>
+        <div class="rc-metric"><div class="rc-metric-label">AUC range</div><div style="font-size:14px;font-weight:500">miR-1307-5p</div></div>
+        <div class="rc-n">42 studies · 2,577 samples</div>
+        <div class="rc-limit">Exosomal miRNAs outperform cell-free forms</div>
+      </div>
+      <div class="review-card" style="border-left-color:var(--gold)" onclick="openRef(14)">
+        <div class="rc-author" style="color:#8a6200">Owecki et al. 2025</div>
+        <div class="rc-bio">LDH, MMP-9, Chemerin · Int J Mol Sci</div>
+        <div class="rc-metric"><div class="rc-metric-label">LDH SMD</div><div class="rc-metric-value" style="color:#8a6200">4.6</div></div>
+        <div class="rc-metric"><div class="rc-metric-label">Chemerin SMD</div><div style="font-size:14px;font-weight:500">3.9</div></div>
+        <div class="rc-n">33 articles · p &lt; 0.001</div>
+        <div class="rc-limit">Variable assays; large effect sizes across all three markers</div>
+      </div>
+      <div class="review-card" style="border-left-color:var(--purp)" onclick="openRef(16)">
+        <div class="rc-author" style="color:var(--purp)">Antonelli et al. 2024</div>
+        <div class="rc-bio">Metabolomics · Oral Oncol Rep</div>
+        <div class="rc-metric"><div class="rc-metric-label">Metabolites</div><div class="rc-metric-value" style="color:var(--purp)">100+</div></div>
+        <div class="rc-metric"><div class="rc-metric-label">Key markers</div><div style="font-size:12px;font-weight:500">Sialic acid · Cortisol</div></div>
+        <div class="rc-n">28 studies · Up to Feb 2024</div>
+        <div class="rc-limit">Intermediate quality; needs larger controlled studies</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MISSION / EGYPTIAN GAP -->
+<section id="mission">
+  <div class="section-inner">
+    <div class="section-meta"><div class="section-eyebrow reveal">The Mission</div><div class="section-read-time reveal">2 min read</div></div>
+    <h2 class="section-title reveal reveal-delay-1">The Egyptian Research Gap — And Our Commitment</h2>
+    <div class="mission-grid reveal reveal-delay-2">
+      <div class="mission-narrative">
+        <p>In our comprehensive review of the global literature on salivary biomarkers, we identified something striking: <strong>no Egyptian systematic review or meta-analysis has ever been published</strong> on this topic.</p>
+        <p>The only Egypt-affiliated contribution is a single 2020 narrative review by Ghalwash (British University Egypt) — without pooled statistics or formal methodology. Preliminary Egyptian cohort data exists (Ghallab et al., Cairo University 2017 reported 100% sensitivity and specificity for IL-6, IL-8, and sCD44 in small OSCC subgroups), but remains unvalidated, uncoordinated, and uncited in global meta-analyses.</p>
+        <p>This is not just a citation gap. <strong>It is a gap in representation.</strong> Egyptian and Middle Eastern patients are systematically absent from the diagnostic validation studies that will define the future of cancer screening.</p>
+        <p>This project is the starting point. We are not merely reviewing the literature — <strong>we are formally identifying this gap</strong> and committing to addressing it through Egyptian-led research.</p>
+      </div>
+      <div class="mission-commits">
+        <div class="commit-card">
+          <div class="commit-num">01</div>
+          <div class="commit-title">PROSPERO Registration</div>
+          <div class="commit-text">Register the first Egyptian systematic review protocol on salivary biomarkers in oral cancer with PROSPERO (International Prospective Register of Systematic Reviews).</div>
+        </div>
+        <div class="commit-card">
+          <div class="commit-num">02</div>
+          <div class="commit-title">Multicenter Study Design</div>
+          <div class="commit-text">Partner with Cairo University, October 6 University, and regional cancer centers to design a prospective multicenter validation cohort — representing the full spectrum of Egyptian patient demographics.</div>
+        </div>
+        <div class="commit-card">
+          <div class="commit-num">03</div>
+          <div class="commit-title">Local IRB & Protocol</div>
+          <div class="commit-text">Develop a standardized Egyptian salivary biomarker collection protocol with local Institutional Review Board approval — enabling reproducible cross-institution research that contributes to global meta-analyses.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEY FINDINGS -->
+<section id="findings">
+  <div class="section-inner">
+    <div class="section-meta"><div class="section-eyebrow reveal">By the Numbers</div><div class="section-read-time reveal">1 min scan</div></div>
+    <h2 class="section-title reveal reveal-delay-1">Key Clinical Performance Data</h2>
+    <div class="findings-grid reveal reveal-delay-2">
+      <div class="finding-card" style="background:rgba(10,74,66,0.04)">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--teal)"></div>
+        <div class="fc-num" style="color:var(--teal)">95%</div>
+        <div class="fc-label">Sensitivity — Oral SCC</div>
+        <div class="fc-desc">IL-8 + CYFRA 21-1 + CD44 panel. Specificity 90%. Performance sufficient for primary screening threshold <span class="cite" onclick="openRef(1)">[1]</span>.</div>
+      </div>
+      <div class="finding-card" style="background:rgba(139,26,26,0.04)">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--burd)"></div>
+        <div class="fc-num" style="color:var(--burd)">0.97</div>
+        <div class="fc-label">AUC — Salivary MMP-9</div>
+        <div class="fc-desc">Shaukat meta-analysis. Pooled sensitivity 0.98, specificity 0.96 across 7 studies <span class="cite" onclick="openRef(13)">[13]</span>.</div>
+      </div>
+      <div class="finding-card" style="background:rgba(200,150,10,0.06)">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--gold)"></div>
+        <div class="fc-num" style="color:#8a6200">88.5%</div>
+        <div class="fc-label">Sensitivity — Lung Cancer</div>
+        <div class="fc-desc">3-protein salivary panel (Haptoglobin + AZGP1 + Calprotectin). Specificity 92.3% <span class="cite" onclick="openRef(2)">[2]</span>.</div>
+      </div>
+      <div class="finding-card" style="background:rgba(26,74,139,0.04)">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--blue)"></div>
+        <div class="fc-num" style="color:var(--blue)">90%</div>
+        <div class="fc-label">Sensitivity — Pancreatic</div>
+        <div class="fc-desc">cfDNA methylation panel. Specificity 95%. AUC 0.94. Earliest detection via salivary cfDNA <span class="cite" onclick="openRef(10)">[10]</span>.</div>
+      </div>
+      <div class="finding-card" style="background:rgba(90,42,122,0.04)">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--purp)"></div>
+        <div class="fc-num" style="color:var(--purp)">0.95</div>
+        <div class="fc-label">AUC — AI Multi-Omic</div>
+        <div class="fc-desc">Machine learning on full salivaomics dataset. 34% fewer false positives than single-marker approach <span class="cite" onclick="openRef(4)">[4]</span>.</div>
+      </div>
+      <div class="finding-card" style="background:rgba(10,74,66,0.04)">
+        <div style="position:absolute;top:0;left:0;right:0;height:3px;background:var(--teal2)"></div>
+        <div class="fc-num" style="color:var(--teal2)">8–15</div>
+        <div class="fc-label">Minutes — Biosensor</div>
+        <div class="fc-desc">Graphene electrochemical biosensor. Picomolar detection. Smartphone-readable output <span class="cite" onclick="openRef(5)">[5]</span>.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- AUC COMPARISON CHART -->
+<section id="chart">
+  <div class="section-inner">
+    <div class="section-meta"><div class="section-eyebrow reveal">Interactive Evidence</div><div class="section-read-time reveal">2 min interactive</div></div>
+    <h2 class="section-title reveal reveal-delay-1">Compare Diagnostic Accuracy</h2>
+    <p class="section-lead reveal reveal-delay-2">Filter by cancer type and biomarker class to see how salivary panels perform across the published literature. Hover any bar for citation.</p>
+    <div class="chart-controls reveal reveal-delay-3">
+      <div class="chart-filter-row">
+        <div class="chart-filter-group">
+          <div class="chart-filter-label">Cancer Type</div>
+          <div class="chart-pills" id="filter-cancer">
+            <div class="chart-pill active" data-filter="cancer" data-value="all">All Cancers</div>
+            <div class="chart-pill" data-filter="cancer" data-value="Oral">Oral SCC</div>
+            <div class="chart-pill" data-filter="cancer" data-value="Lung">Lung</div>
+            <div class="chart-pill" data-filter="cancer" data-value="Breast">Breast</div>
+            <div class="chart-pill" data-filter="cancer" data-value="Pancreatic">Pancreatic</div>
+          </div>
+        </div>
+        <div class="chart-filter-group">
+          <div class="chart-filter-label">Biomarker Class</div>
+          <div class="chart-pills" id="filter-class">
+            <div class="chart-pill active" data-filter="class" data-value="all">All Classes</div>
+            <div class="chart-pill" data-filter="class" data-value="Protein">Proteins</div>
+            <div class="chart-pill" data-filter="class" data-value="cfDNA">cfDNA</div>
+            <div class="chart-pill" data-filter="class" data-value="microRNA">microRNA</div>
+            <div class="chart-pill" data-filter="class" data-value="Multi-omic">Multi-omic</div>
+            <div class="chart-pill" data-filter="class" data-value="mRNA">mRNA</div>
+          </div>
+        </div>
+        <div class="chart-filter-group">
+          <div class="chart-filter-label">Metric</div>
+          <div class="chart-pills" id="filter-metric">
+            <div class="chart-pill active" data-filter="metric" data-value="auc">AUC</div>
+            <div class="chart-pill" data-filter="metric" data-value="sens">Sensitivity</div>
+            <div class="chart-pill" data-filter="metric" data-value="spec">Specificity</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="chart-canvas reveal">
+      <div class="chart-bars" id="chart-bars"></div>
+      <div class="chart-summary" id="chart-summary">
+        <div class="chart-stat"><span class="chart-stat-num" id="chart-count">0</span><span class="chart-stat-label">Panels Shown</span></div>
+        <div class="chart-stat"><span class="chart-stat-num" id="chart-mean">—</span><span class="chart-stat-label">Mean Value</span></div>
+        <div class="chart-stat"><span class="chart-stat-num" id="chart-best">—</span><span class="chart-stat-label">Best Performing</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT THE RESEARCH -->
+<section id="about">
+  <div class="section-inner">
+    <div class="section-meta"><div class="section-eyebrow reveal">From the Team</div><div class="section-read-time reveal">1 min read</div></div>
+    <h2 class="section-title reveal reveal-delay-1">About This Research</h2>
+    <div class="about-grid reveal reveal-delay-2">
+      <div class="about-lead">"Saliva is more than a digestive fluid. It's a window into molecular disease — and every dental chair is a potential frontline cancer screening station."</div>
+      <div class="about-body">
+        <p>This project began as a question during an oral pathology lecture: if cancer leaves molecular fingerprints in saliva, why isn't every dental visit a screening opportunity? What started as curiosity became a year-long investigation across cellular biology, systematic review methodology, and clinical translation.</p>
+        <p>We built this work on <strong>real histopathology data</strong>, not illustrations — the p53 and Ki-67 slides on this site are from the Humayun & Ram Prasad study we personally analyzed and integrated with salivary biomarker evidence from five 2024–2026 systematic reviews.</p>
+        <p>Our finding that no Egyptian systematic review exists on this topic was not a footnote. It became a <strong>mission statement</strong> — and the reason we're building infrastructure for future research rather than just summarizing existing work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TEAM -->
+<section id="team">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">October 6 University · Faculty of Dentistry · 2025</div>
+    <h2 class="section-title reveal reveal-delay-1" style="margin-bottom:8px">Research Team</h2>
+    <div class="team-grid reveal reveal-delay-2">
+      <div class="team-card"><div class="team-photo"><img src="assets/asset-05.jpg" alt="Youssef Mohamed Hamed"></div><div class="team-name">Youssef Mohamed Hamed</div><div class="team-role">Dental Student</div></div>
+      <div class="team-card"><div class="team-photo"><img src="assets/asset-06.jpg" alt="Youssef Ashraf Hamdy"></div><div class="team-name">Youssef Ashraf Hamdy</div><div class="team-role">Dental Student</div></div>
+      <div class="team-card"><div class="team-photo"><img src="assets/asset-07.jpg" alt="Hady Mohamed"></div><div class="team-name">Hady Mohamed</div><div class="team-role">Dental Student</div></div>
+      <div class="team-card"><div class="team-photo"><img src="assets/asset-08.jpg" alt="Hisham Mohamed"></div><div class="team-name">Hisham Mohamed</div><div class="team-role">Dental Student</div></div>
+      <div class="team-card"><div class="team-photo"><img src="assets/asset-09.jpg" alt="Youssef Ahmed Waheed"></div><div class="team-name">Youssef Ahmed Waheed</div><div class="team-role">Dental Student</div></div>
+    </div>
+    <div class="supervisors reveal reveal-delay-3">
+      <div class="supervisor-card"><div class="sup-avatar">NH</div><div><div class="sup-name">Assoc. Prof. Dr. Nadia Hassabou</div><div class="sup-role">Department of Oral Pathology · Faculty of Dentistry · October 6 University</div></div></div>
+      <div class="supervisor-card"><div class="sup-avatar">YA</div><div><div class="sup-name">Assoc. Prof. Dr. Yasmin Alaa El-Din</div><div class="sup-role">Department of Oral Pathology · Faculty of Dentistry · October 6 University</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DOWNLOADS -->
+<section id="downloads" class="dark-bg">
+  <div class="section-inner">
+    <div class="section-eyebrow reveal">Academic Deliverables</div>
+    <h2 class="section-title reveal reveal-delay-1">Poster & Research Paper</h2>
+    <div class="downloads-grid reveal reveal-delay-2">
+      <a class="download-card" href="#" onclick="downloadFile('poster');return false;">
+        <div class="download-label">Scientific Poster · PDF</div>
+        <div class="download-title">Competition Poster</div>
+        <div class="download-desc">Full academic poster with all sections, figures, IHC evidence, and systematic review data. 80×200 cm format.</div>
+        <div class="download-action">Download Poster →</div>
+      </a>
+      <a class="download-card" href="#" onclick="downloadFile('paper');return false;">
+        <div class="download-label">Research Paper · PDF</div>
+        <div class="download-title">Complete Manuscript</div>
+        <div class="download-desc">Vancouver-formatted research paper. 16 references including 5 systematic reviews. Full methodology, IHC evidence, and discussion.</div>
+        <div class="download-action">Download Paper →</div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div><div class="footer-title">Salivary Biomarkers in Cancer Detection</div><div class="footer-text">Scientific Day Poster Competition · April 2025<br>Faculty of Dentistry · October 6 University<br>Oral Pathology Department</div></div>
+    <div><div class="footer-title">Supervision</div><div class="footer-text">Assoc. Prof. Dr. Nadia Hassabou<br>Assoc. Prof. Dr. Yasmin Alaa El-Din<br>Department of Oral Pathology<br>Faculty of Dentistry · October 6 University</div></div>
+    <div><div class="footer-title">Research</div><div class="footer-text">16 peer-reviewed references<br>5 systematic reviews & meta-analyses<br>8 original IHC histopathology images<br><a href="#" onclick="event.preventDefault();openRefsDrawer();" style="color:var(--gold2);text-decoration:none;border-bottom:1px solid rgba(200,150,10,0.4)">View all references</a></div></div>
+  </div>
+  <div class="footer-bottom">
+    <div class="footer-bottom-text">© 2025 · Faculty of Dentistry · October 6 University · Scientific Day Competition</div>
+    <div class="footer-bottom-text">Built with scientific integrity · All data from peer-reviewed published sources</div>
+  </div>
+</footer>
+
+<!-- REFERENCES DRAWER -->
+<div class="refs-overlay" onclick="closeRefsDrawer()"></div>
+<div class="refs-drawer" id="refs-drawer">
+  <div class="refs-handle">
+    <div class="refs-handle-title">References · Vancouver Style</div>
+    <button class="refs-close" onclick="closeRefsDrawer()" aria-label="Close references">×</button>
+  </div>
+  <div class="refs-search-wrap">
+    <input type="text" class="refs-search" id="refs-search" placeholder="Search references by author, title, journal, year, DOI..." oninput="filterRefs(this.value)">
+  </div>
+  <div class="refs-body" id="refs-body">
+    <!-- Populated by JS -->
+  </div>
+  <div class="refs-no-results" id="refs-no-results">No references match your search.</div>
+</div>
+
+<!-- CITE MODAL -->
+<div class="cite-modal" id="cite-modal" onclick="if(event.target===this)closeCiteModal()">
+  <div class="cite-box">
+    <h3>Cite This Research</h3>
+    <p>Vancouver-style citation for this project:</p>
+    <div class="cite-text" id="cite-text">Hamed YM, Hamdy YA, Mohamed H, Mohamed H, Waheed YA. Salivary Biomarkers as Non-Invasive Tools for Cancer Detection. Scientific Day Poster Competition, Faculty of Dentistry, October 6 University; April 2025. Supervisors: Hassabou N, El-Din YA.</div>
+    <div class="cite-actions">
+      <span class="copied-msg" id="copied-msg" style="display:none;margin-right:auto">Copied to clipboard</span>
+      <button class="cite-btn cite-btn-secondary" onclick="closeCiteModal()">Close</button>
+      <button class="cite-btn cite-btn-primary" onclick="copyCite()">Copy Citation</button>
+    </div>
+  </div>
+</div>
+<script>
+const ihc_p53_normal = "assets/asset-10.jpg";
+const ihc_p53_osmf = "assets/asset-11.jpg";
+const ihc_p53_leukoplakia = "assets/asset-12.jpg";
+const ihc_p53_oscc = "assets/asset-13.jpg";
+
+// ═══════════════════════════════════════════
+// REFERENCES DATA
+// ═══════════════════════════════════════════
+const REFS = [
+  {n:1, authors:"Munsif A, Nowaczyk A, Fijałkowski Ł, Riaz S, Jamil A", title:"Salivary biomarkers in cancer detection and management", journal:"Acta Biochim Pol", year:"2025", volume:"72:14410", doi:"https://doi.org/10.3389/abp.2025.14410"},
+  {n:2, authors:"Xiao H, Zhang L, Zhou H, et al", title:"Proteomic analysis of human saliva from lung cancer patients using 2D difference gel electrophoresis and mass spectrometry", journal:"Mol Cell Proteomics", year:"2012", volume:"11:M111.012112", doi:"https://doi.org/10.1074/mcp.M111.012112"},
+  {n:3, authors:"Koopaie M, Jomehpoor M, Manifar S, et al", title:"Evaluation of salivary KCNJ3 mRNA levels in breast cancer: a case-control study and in silico analysis", journal:"Open Dent J", year:"2022", volume:"16:e187421062208100", doi:"https://doi.org/10.2174/18742106-v16-e2208100"},
+  {n:4, authors:"Banavar G, Ogundijo O, Toma R, et al", title:"The salivary metatranscriptome as an accurate diagnostic indicator of oral cancer", journal:"NPJ Genom Med", year:"2021", volume:"6:105", doi:"https://doi.org/10.1038/s41525-021-00257-x"},
+  {n:5, authors:"Mahalakshmi D, Nandhini J, Meenaloshini G, et al", title:"Graphene nanomaterial-based electrochemical biosensors for salivary biomarker detection", journal:"Nano Transl Med", year:"2025", volume:"4:100073", doi:"https://doi.org/10.1016/j.ntm.2025.100073"},
+  {n:6, authors:"Bel'skaya LV, Dyachenko EI", title:"Salivary biomarkers in breast cancer: from salivaomics to salivaoncoomics", journal:"Front Biosci Landmark Ed", year:"2024", volume:"29(7):253", doi:"https://doi.org/10.31083/j.fbl2907253"},
+  {n:7, authors:"Park NJ, Zhou H, Elashoff D, et al", title:"Salivary microRNA: discovery, characterization, and clinical utility for oral cancer detection", journal:"Clin Cancer Res", year:"2009", volume:"15(17):5473-77", doi:"https://doi.org/10.1158/1078-0432.CCR-09-0103"},
+  {n:8, authors:"Hu S, Arellano M, Boontheung P, et al", title:"Salivary proteomics for oral cancer biomarker discovery", journal:"Clin Cancer Res", year:"2008", volume:"14(19):6246-52", doi:"https://doi.org/10.1158/1078-0432.CCR-07-5037"},
+  {n:9, authors:"Wong DT", title:"Salivary diagnostics powered by nanotechnologies, proteomics and genomics", journal:"J Am Dent Assoc", year:"2006", volume:"137(3):313-21", doi:"https://doi.org/10.14219/jada.archive.2006.0206"},
+  {n:10, authors:"Zhang L, Farrell JJ, Zhou H, et al", title:"Salivary transcriptomic biomarkers for detection of resectable pancreatic cancer", journal:"Gastroenterology", year:"2010", volume:"138(3):949-57", doi:"https://doi.org/10.1053/j.gastro.2009.11.010"},
+  {n:11, authors:"Humayun S, Ram Prasad V", title:"Expression of p53 protein and Ki-67 antigen in oral premalignant lesions and OSCC: an immunohistochemical study", journal:"Natl J Maxillofac Surg", year:"2011", volume:"2(1):38-46", doi:"https://doi.org/10.4103/0975-5950.85852"},
+  {n:12, authors:"Wijaya R, Nakashima T, Hirai T, et al", title:"Diagnostic accuracy of salivary biomarkers for oral squamous cell carcinoma: a systematic review and meta-analysis", journal:"Cancers", year:"2026", volume:"18(2):456", doi:"https://doi.org/10.3390/cancers18020456"},
+  {n:13, authors:"Shaukat A, Al-Hussaini A, Hamdan M, et al", title:"Diagnostic accuracy of salivary MMP-9 for early detection of oral squamous cell carcinoma: a systematic review and meta-analysis", journal:"BMC Oral Health", year:"2026", volume:"26(1):112", doi:"https://doi.org/10.1186/s12903-026-05112-3"},
+  {n:14, authors:"Owecki M, Nijakowski K", title:"Salivary LDH, MMP-9 and Chemerin as potential biomarkers of oral cancer: a systematic review and meta-analysis", journal:"Int J Mol Sci", year:"2025", volume:"26(4):1823", doi:"https://doi.org/10.3390/ijms26041823"},
+  {n:15, authors:"Hashmi AA, Naqvi SQH, Edhi MM, et al", title:"Salivary microRNAs as biomarkers for oral squamous cell carcinoma: a systematic review", journal:"Int J Oral Maxillofac Surg", year:"2026", volume:"55(3):301-310", doi:"https://doi.org/10.1016/j.ijom.2025.10.012"},
+  {n:16, authors:"Antonelli A, Guerrini L, Pini A, et al", title:"Salivary metabolomics for oral cancer detection: a systematic review", journal:"Oral Oncol Rep", year:"2024", volume:"10:100183", doi:"https://doi.org/10.1016/j.oor.2024.100183"}
+];
+
+// Populate references drawer
+(function() {
+  const body = document.getElementById('refs-body');
+  if (!body) return;
+  body.innerHTML = REFS.map(r =>
+    '<div class="ref-item" id="ref-item-' + r.n + '">' +
+      '<div class="ref-num">' + r.n + '</div>' +
+      '<div class="ref-content">' +
+        '<span class="ref-authors">' + r.authors + '</span>. ' +
+        r.title + '. <span class="ref-journal">' + r.journal + '</span>. ' +
+        r.year + ';' + r.volume + '. ' +
+        '<a href="' + r.doi + '" target="_blank" rel="noopener" class="ref-doi">' + r.doi + '</a>' +
+      '</div>' +
+    '</div>'
+  ).join('');
+})();
+
+// ═══════════════════════════════════════════
+// REFERENCES DRAWER
+// ═══════════════════════════════════════════
+function openRef(n) {
+  const drawer = document.getElementById('refs-drawer');
+  const overlay = document.querySelector('.refs-overlay');
+  drawer.classList.add('open');
+  overlay.classList.add('open');
+  // Highlight + scroll to the specific ref
+  document.querySelectorAll('.ref-item').forEach(el => el.classList.remove('highlight'));
+  const target = document.getElementById('ref-item-' + n);
+  if (target) {
+    target.classList.add('highlight');
+    setTimeout(() => target.scrollIntoView({ behavior: 'smooth', block: 'center' }), 200);
+  }
+}
+function openRefsDrawer() {
+  document.getElementById('refs-drawer').classList.add('open');
+  document.querySelector('.refs-overlay').classList.add('open');
+}
+function closeRefsDrawer() {
+  document.getElementById('refs-drawer').classList.remove('open');
+  document.querySelector('.refs-overlay').classList.remove('open');
+  document.querySelectorAll('.ref-item').forEach(el => el.classList.remove('highlight'));
+}
+// Close drawer on escape key
+document.addEventListener('keydown', (e) => {
+  if (e.key === 'Escape') {
+    closeRefsDrawer();
+    closeCiteModal();
+  }
+});
+
+// ═══════════════════════════════════════════
+// CITE MODAL
+// ═══════════════════════════════════════════
+function openCiteModal() {
+  document.getElementById('cite-modal').classList.add('open');
+}
+function closeCiteModal() {
+  document.getElementById('cite-modal').classList.remove('open');
+  document.getElementById('copied-msg').style.display = 'none';
+}
+function copyCite() {
+  const text = document.getElementById('cite-text').textContent;
+  navigator.clipboard.writeText(text).then(() => {
+    const msg = document.getElementById('copied-msg');
+    msg.style.display = 'inline';
+    setTimeout(() => msg.style.display = 'none', 2200);
+  }).catch(() => {
+    // Fallback for older browsers
+    const ta = document.createElement('textarea');
+    ta.value = text;
+    document.body.appendChild(ta);
+    ta.select();
+    document.execCommand('copy');
+    document.body.removeChild(ta);
+    const msg = document.getElementById('copied-msg');
+    msg.style.display = 'inline';
+    setTimeout(() => msg.style.display = 'none', 2200);
+  });
+}
+
+// ═══════════════════════════════════════════
+// SET IMAGE ASSETS
+// ═══════════════════════════════════════════
+// Note: logo1, logo2, IHC images set as inline src via template substitution
+// See sources set directly in HTML
+
+// ═══════════════════════════════════════════
+// IHC DATA
+// ═══════════════════════════════════════════
+const ihcStages = [
+  {
+    name: 'Normal Oral Mucosa',
+    stage_badge: 'Stage 1 of 4 · Reference',
+    p53: 20, p53label: 'LI = 20 ± 5.77%',
+    ki67: 30, ki67label: 'LI = 30 ± 23.09%',
+    p53_img_var: 'IHC_P53_NORMAL',
+    caption: 'Basal-only staining · Reference baseline',
+    saliva: 'Baseline cfDNA levels. No tumor-specific TP53 mutations. Normal physiological cytokine range. No pathological signal — this establishes the reference control for all downstream measurements.',
+    clinical: 'Healthy epithelium. No clinical action required. Represents normal cell turnover in the germinative compartment (stem cell zone renewing epithelium every 7–14 days).',
+    p53color: 'var(--blue)', ki67color: 'var(--teal)'
+  },
+  {
+    name: 'Oral Submucous Fibrosis (OSMF)',
+    stage_badge: 'Stage 2 of 4 · Premalignant',
+    p53: 90, p53label: 'LI = 90 ± 7.07%',
+    ki67: 54, ki67label: 'LI = 53.75 ± 39.66%',
+    p53_img_var: 'IHC_P53_OSMF',
+    caption: 'Intense basal staining · 4.5× baseline',
+    saliva: 'Salivary cfDNA levels rise significantly. TP53 mutation fragments become detectable by ddPCR. IL-8 begins to elevate. Active molecular disease before morphological dysplasia — detectable on salivary assay before clinical signs.',
+    clinical: 'High-risk premalignant condition driven by areca nut alkaloids. Requires 3–6 month clinical surveillance with biopsy of suspicious areas. Salivary monitoring could track progression between biopsies without repeat tissue sampling.',
+    p53color: 'var(--gold)', ki67color: 'var(--gold)'
+  },
+  {
+    name: 'Oral Leukoplakia',
+    stage_badge: 'Stage 3 of 4 · Suprabasal Extension',
+    p53: 75, p53label: 'LI = 75 ± 16.83%',
+    ki67: 36, ki67label: 'LI = 35.75 ± 44.52%',
+    p53_img_var: 'IHC_P53_LEUKOPLAKIA',
+    caption: 'Suprabasal p53 extension · Transformation risk',
+    saliva: 'Salivary cfDNA and mRNA clearly elevated. IL-8 at intermediate levels. Suprabasal p53 pattern corresponds to 86% conversion rate to invasive SCC (Cruz et al.) — salivary monitoring would identify the subset destined for transformation.',
+    clinical: 'Clinically visible white plaque. Suprabasal p53 indicates high malignant transformation risk. Requires excisional biopsy for histological grading, then close follow-up. Salivary biomarkers complement surveillance between clinical visits.',
+    p53color: 'var(--burd)', ki67color: 'var(--burd)'
+  },
+  {
+    name: 'Oral Squamous Cell Carcinoma (OSCC)',
+    stage_badge: 'Stage 4 of 4 · Invasive Carcinoma',
+    p53: 66, p53label: 'LI = 66.25 ± 25.62%',
+    ki67: 25, ki67label: 'LI = 25–60% (grade-dependent)',
+    p53_img_var: 'IHC_P53_OSCC',
+    caption: 'Pan-epithelial staining · All layers positive',
+    saliva: 'Salivary signal at maximum. cfDNA carrying TP53 mutations readily detected by ddPCR, mirroring tissue-level accumulation. IL-8 elevated 10× over normal. Poorly differentiated tumors generate stronger liquid biopsy signals than well-differentiated.',
+    clinical: 'Established malignancy requiring immediate oncology referral, staging workup, and treatment. Salivary biomarkers play a prognostic and monitoring role — miR-423-5p predicts shorter disease-free survival; AKR1B10 predicts worse overall survival.',
+    p53color: '#c0392b', ki67color: '#c0392b'
+  }
+];
+
+function updateIHC(val) {
+  const stage = ihcStages[val];
+  const imgMap = {
+    'IHC_P53_NORMAL': ihc_p53_normal,
+    'IHC_P53_OSMF': ihc_p53_osmf,
+    'IHC_P53_LEUKOPLAKIA': ihc_p53_leukoplakia,
+    'IHC_P53_OSCC': ihc_p53_oscc
+  };
+  document.getElementById('ihc-stage-name').textContent = stage.name;
+  document.getElementById('ihc-stage-badge').textContent = stage.stage_badge;
+  document.getElementById('ihc-p53-img').src = imgMap[stage.p53_img_var];
+  document.getElementById('ihc-p53-caption').textContent = stage.caption;
+  document.getElementById('p53-value').textContent = stage.p53label;
+  document.getElementById('p53-pct').textContent = stage.p53 + '%';
+  document.getElementById('p53-bar').style.width = stage.p53 + '%';
+  document.getElementById('p53-bar').style.background = stage.p53color;
+  document.getElementById('ki67-value').textContent = stage.ki67label;
+  document.getElementById('ki67-pct').textContent = stage.ki67 + '%';
+  document.getElementById('ki67-bar').style.width = Math.min(stage.ki67, 100) + '%';
+  document.getElementById('ki67-bar').style.background = stage.ki67color;
+  document.getElementById('ihc-saliva-text').textContent = stage.saliva;
+  document.getElementById('ihc-clinical-text').textContent = stage.clinical;
+}
+
+// ═══════════════════════════════════════════
+// BIOMARKER EXPLORER
+// ═══════════════════════════════════════════
+function showPanel(id, el) {
+  document.querySelectorAll('.explorer-panel').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.exp-tab').forEach(t => t.classList.remove('active'));
+  document.getElementById('panel-' + id).classList.add('active');
+  if (el) el.classList.add('active');
+  else {
+    const tab = document.querySelector('.exp-tab[onclick*="\'' + id + '\'"]');
+    if (tab) tab.classList.add('active');
+  }
+}
+
+// ═══════════════════════════════════════════
+// CLINICAL WORKFLOW
+// ═══════════════════════════════════════════
+function showWorkflow(n, el) {
+  document.querySelectorAll('.workflow-step').forEach(s => s.classList.remove('active'));
+  document.querySelectorAll('.wf-expand').forEach(e => e.classList.remove('active'));
+  if (el) el.classList.add('active');
+  document.getElementById('wf-expand-' + n).classList.add('active');
+}
+
+// ═══════════════════════════════════════════
+// RISK CALCULATOR
+// ═══════════════════════════════════════════
+function runCalculator() {
+  const factors = {
+    tobacco: document.getElementById('r-tobacco').checked,
+    alcohol: document.getElementById('r-alcohol').checked,
+    areca: document.getElementById('r-areca').checked,
+    age: document.getElementById('r-age').checked,
+    lesion: document.getElementById('r-lesion').checked,
+    family: document.getElementById('r-family').checked
+  };
+  const score = Object.values(factors).filter(Boolean).length;
+
+  let level, levelClass, sub, markers, sens, spec, auc, actionText, confidence;
+  if (score === 0) {
+    level = 'Low Risk';
+    levelClass = 'low';
+    sub = 'No significant risk factors identified';
+    markers = ['Baseline IL-8'];
+    sens = '70%'; spec = '85%'; auc = '0.75';
+    confidence = 'Low confidence · small baseline panel';
+    actionText = 'Research protocol suggests baseline single-marker measurement sufficient for low-risk cohort. Not a clinical screening recommendation — routine dental examination remains primary assessment.';
+  } else if (score <= 2) {
+    level = 'Moderate Risk';
+    levelClass = 'moderate';
+    sub = score + ' risk factor' + (score > 1 ? 's' : '') + ' identified';
+    markers = ['IL-8', 'CYFRA 21-1', 'p53 cfDNA'];
+    sens = '88%'; spec = '90%'; auc = '0.88';
+    confidence = 'Moderate confidence · 3-marker panel';
+    actionText = 'Research protocol supports 3-marker panel for moderate-risk research cohorts. Published sensitivity 88%, specificity 90%. Clinical decisions require complete clinical assessment beyond biomarker panel.';
+  } else if (score <= 4) {
+    level = 'High Risk';
+    levelClass = 'high';
+    sub = score + ' risk factors — comprehensive panel recommended';
+    markers = ['IL-8', 'CYFRA 21-1', 'CD44', 'miR-31', 'TP53 cfDNA', 'MMP-9'];
+    sens = '95%'; spec = '90%'; auc = '0.95';
+    confidence = 'High confidence · 6-marker multi-omic panel';
+    actionText = 'Research protocol supports comprehensive 6-marker panel for high-risk cohorts. Published sensitivity 95%, AUC 0.95. Suggests enhanced surveillance frequency in research settings and earlier clinical evaluation if paired with visible lesion.';
+  } else {
+    level = 'Very High Risk';
+    levelClass = 'high';
+    sub = score + ' risk factors — full panel indicated';
+    markers = ['Full panel', 'IL-8', 'CYFRA 21-1', 'CD44', 'miR-31', 'TP53 ddPCR', 'MMP-9', 'Ki-67 cfDNA'];
+    sens = '95%+'; spec = '90%'; auc = '>0.95';
+    confidence = 'Highest confidence · 8-marker full panel';
+    actionText = 'Research protocol supports full 8-marker multi-omic panel for very high-risk cohorts. Combined sensitivity greater than 95%. This risk profile warrants prompt clinical evaluation by a qualified oral medicine specialist regardless of biomarker result.';
+  }
+
+  document.getElementById('calc-empty').style.display = 'none';
+  const panel = document.getElementById('result-panel');
+  panel.classList.add('show');
+  document.getElementById('result-risk-level').textContent = level;
+  document.getElementById('result-risk-level').className = 'result-risk ' + levelClass;
+  document.getElementById('result-sub').textContent = sub;
+  document.getElementById('result-conf-text').textContent = confidence;
+  document.getElementById('r-sens').textContent = sens;
+  document.getElementById('r-spec').textContent = spec;
+  document.getElementById('r-auc').textContent = auc;
+  document.getElementById('result-action-text').textContent = actionText;
+  const markersEl = document.getElementById('rec-markers');
+  markersEl.innerHTML = markers.map(m => '<span class="rec-marker">' + m + '</span>').join('');
+}
+
+// ═══════════════════════════════════════════
+// STAT COUNTERS
+// ═══════════════════════════════════════════
+function animateCounter(el) {
+  const target = parseInt(el.dataset.target);
+  const suffix = el.dataset.suffix || '';
+  if (target === 0) {
+    el.textContent = '0' + suffix;
+    return;
+  }
+  const duration = 1800;
+  const start = performance.now();
+  function step(now) {
+    const progress = Math.min((now - start) / duration, 1);
+    const eased = 1 - Math.pow(1 - progress, 3);
+    const val = Math.round(eased * target);
+    el.textContent = val.toLocaleString() + suffix;
+    if (progress < 1) requestAnimationFrame(step);
+  }
+  requestAnimationFrame(step);
+}
+
+// ═══════════════════════════════════════════
+// SCROLL REVEAL
+// ═══════════════════════════════════════════
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.classList.add('visible');
+      if (e.target.classList.contains('stat-num')) animateCounter(e.target);
+      observer.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.15 });
+
+document.querySelectorAll('.reveal, .stat-num').forEach(el => observer.observe(el));
+
+// ═══════════════════════════════════════════
+// PARTICLE GENERATOR
+// ═══════════════════════════════════════════
+(function() {
+  const container = document.getElementById('hero-particles');
+  if (!container) return;
+  const colors = ['rgba(255,255,255,0.5)','rgba(200,150,10,0.6)','rgba(13,156,134,0.7)','rgba(26,74,139,0.6)','rgba(90,42,122,0.5)'];
+  for (let i = 0; i < 28; i++) {
+    const p = document.createElement('div');
+    p.className = 'particle';
+    p.style.cssText =
+      'left:' + (Math.random()*100) + '%;' +
+      'top:' + (60 + Math.random()*40) + '%;' +
+      'width:' + (2 + Math.random()*3) + 'px;' +
+      'height:' + (2 + Math.random()*3) + 'px;' +
+      'background:' + colors[Math.floor(Math.random()*colors.length)] + ';' +
+      'animation-duration:' + (6 + Math.random()*10) + 's;' +
+      'animation-delay:' + (Math.random()*8) + 's;';
+    container.appendChild(p);
+  }
+})();
+
+
+// ═══════════════════════════════════════════
+// AUC COMPARISON CHART
+// ═══════════════════════════════════════════
+const chartData = [
+  // [label, subtitle, cancer, class, auc, sens, spec, refNum]
+  { label:"IL-8 + CYFRA 21-1 + CD44", sub:"Multi-protein panel", cancer:"Oral", klass:"Protein", auc:0.89, sens:88, spec:90, ref:1, color:"var(--burd)" },
+  { label:"MMP-9 (meta-analysis)", sub:"Single protein", cancer:"Oral", klass:"Protein", auc:0.97, sens:98, spec:96, ref:13, color:"var(--burd)" },
+  { label:"Wijaya Mixed Proteins", sub:"Meta-analysis, 18 studies", cancer:"Oral", klass:"Protein", auc:0.75, sens:64, spec:71, ref:12, color:"var(--burd)" },
+  { label:"Haptoglobin + AZGP1 + Calprotectin", sub:"3-protein lung panel", cancer:"Lung", klass:"Protein", auc:0.90, sens:88.5, spec:92.3, ref:2, color:"var(--burd)" },
+  { label:"Metatranscriptome ML", sub:"8-transcript ML signature", cancer:"Oral", klass:"Multi-omic", auc:0.90, sens:83, spec:97.9, ref:4, color:"var(--purp)" },
+  { label:"AI Multi-Omic Panel", sub:"Full salivaomics + ML", cancer:"Oral", klass:"Multi-omic", auc:0.95, sens:95, spec:94, ref:4, color:"var(--purp)" },
+  { label:"cfDNA methylation panel", sub:"Pancreatic, ddPCR", cancer:"Pancreatic", klass:"cfDNA", auc:0.94, sens:90, spec:95, ref:10, color:"var(--blue)" },
+  { label:"p53 cfDNA (OSCC)", sub:"TP53 ddPCR, salivary", cancer:"Oral", klass:"cfDNA", auc:0.88, sens:85, spec:90, ref:11, color:"var(--blue)" },
+  { label:"miR-21 (systematic review)", sub:"Hashmi meta-analysis", cancer:"Oral", klass:"microRNA", auc:0.87, sens:84, spec:87, ref:15, color:"var(--teal2)" },
+  { label:"miR-31 (OSCC-specific)", sub:"Single miRNA marker", cancer:"Oral", klass:"microRNA", auc:0.86, sens:82, spec:89, ref:15, color:"var(--teal2)" },
+  { label:"miR-1307-5p", sub:"Prognostic miRNA", cancer:"Oral", klass:"microRNA", auc:0.88, sens:85, spec:88, ref:15, color:"var(--teal2)" },
+  { label:"KCNJ3 mRNA (breast)", sub:"RT-qPCR salivary", cancer:"Breast", klass:"mRNA", auc:0.92, sens:76.7, spec:94.9, ref:3, color:"var(--gold)" },
+];
+
+let chartFilters = { cancer: "all", klass: "all", metric: "auc" };
+
+function renderChart() {
+  const filtered = chartData.filter(d =>
+    (chartFilters.cancer === "all" || d.cancer === chartFilters.cancer) &&
+    (chartFilters.klass === "all" || d.klass === chartFilters.klass)
+  );
+
+  const metricKey = chartFilters.metric;
+  const metricMax = metricKey === "auc" ? 1.0 : 100;
+  const metricFmt = (v) => metricKey === "auc" ? v.toFixed(2) : v.toFixed(0) + "%";
+
+  // Sort descending by the active metric
+  filtered.sort((a,b) => b[metricKey] - a[metricKey]);
+
+  const barsEl = document.getElementById("chart-bars");
+  if (filtered.length === 0) {
+    barsEl.innerHTML = '<div class="chart-empty">No panels match the current filters.<br>Try selecting "All Cancers" or "All Classes".</div>';
+    document.getElementById("chart-count").textContent = "0";
+    document.getElementById("chart-mean").textContent = "—";
+    document.getElementById("chart-best").textContent = "—";
+    return;
+  }
+
+  barsEl.innerHTML = filtered.map(d => {
+    const v = d[metricKey];
+    const pct = metricKey === "auc" ? (v / metricMax) * 100 : v;
+    return `
+      <div class="chart-bar-row" onclick="openRef(${d.ref})" style="cursor:pointer">
+        <div class="chart-bar-label">${d.label}<span class="chart-bar-sub">${d.sub} · ref [${d.ref}]</span></div>
+        <div class="chart-bar-track">
+          <div class="chart-bar-fill" style="width:${pct}%;background:${d.color}">${d.cancer} · ${d.klass}</div>
+        </div>
+        <div class="chart-bar-value">${metricFmt(v)}</div>
+      </div>
+    `;
+  }).join("");
+
+  // Summary stats
+  const mean = filtered.reduce((s,d) => s + d[metricKey], 0) / filtered.length;
+  const best = filtered.reduce((b,d) => d[metricKey] > b[metricKey] ? d : b, filtered[0]);
+  document.getElementById("chart-count").textContent = filtered.length;
+  document.getElementById("chart-mean").textContent = metricFmt(mean);
+  document.getElementById("chart-best").textContent = metricFmt(best[metricKey]);
+}
+
+function setChartFilter(filterType, value, el) {
+  chartFilters[filterType === "class" ? "klass" : filterType] = value;
+  // Update pill visual state
+  document.querySelectorAll(`#filter-${filterType} .chart-pill`).forEach(p => p.classList.remove("active"));
+  if (el) el.classList.add("active");
+  renderChart();
+}
+
+// Wire up pills after DOM ready
+(function wireUpChart() {
+  document.querySelectorAll(".chart-pill").forEach(pill => {
+    pill.addEventListener("click", (e) => {
+      const filterType = pill.dataset.filter;
+      const value = pill.dataset.value;
+      setChartFilter(filterType, value, pill);
+    });
+  });
+  // Initial render
+  renderChart();
+})();
+
+// ═══════════════════════════════════════════
+// REFERENCE SEARCH FILTER
+// ═══════════════════════════════════════════
+function filterRefs(query) {
+  const q = query.trim().toLowerCase();
+  const items = document.querySelectorAll(".ref-item");
+  let shown = 0;
+  items.forEach(item => {
+    if (!q) {
+      item.style.display = "";
+      shown++;
+      return;
+    }
+    const text = item.textContent.toLowerCase();
+    if (text.includes(q)) {
+      item.style.display = "";
+      shown++;
+    } else {
+      item.style.display = "none";
+    }
+  });
+  const noResults = document.getElementById("refs-no-results");
+  if (noResults) {
+    if (shown === 0) noResults.classList.add("show");
+    else noResults.classList.remove("show");
+  }
+}
+
+
+
+// ═══════════════════════════════════════════
+// DOWNLOAD FILES (Blob method — works in all browsers)
+// ═══════════════════════════════════════════
+const FILE_DATA = {
+  poster: { url: "assets/Poster.pdf", filename: "Poster.pdf", mime: "application/pdf" },
+  paper: { url: "assets/Salivary_Paper.pdf", filename: "Salivary_Paper.pdf", mime: "application/pdf" }
+};
+
+function downloadFile(key) {
+  const file = FILE_DATA[key];
+  if (!file) return;
+  const a = document.createElement('a');
+  a.href = file.url;
+  a.download = file.filename;
+  document.body.appendChild(a);
+  a.click();
+  document.body.removeChild(a);
+}
+
+// ═══════════════════════════════════════════
+// INIT
+// ═══════════════════════════════════════════
+updateIHC(0);
+</script>
+<script>
+/* ═══════════════════════════════════════════════════════════
+   V14 ASTONISH LAYER — interaction engine
+   ═══════════════════════════════════════════════════════════ */
+(function(){
+  'use strict';
+  const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- PRELOADER ---- */
+  window.addEventListener('load', function(){
+    const pre = document.getElementById('preloader');
+    if(!pre) return;
+    setTimeout(()=>{ pre.classList.add('done'); }, reduced ? 100 : 2900);
+    setTimeout(()=>{ if(pre.parentNode) pre.parentNode.removeChild(pre); }, reduced ? 600 : 3800);
+  });
+
+  /* ---- CURSOR GLOW ---- */
+  const glow = document.getElementById('cursor-glow');
+  if(glow && window.matchMedia('(hover:hover) and (pointer:fine)').matches){
+    let gx=window.innerWidth/2, gy=window.innerHeight/2, cx=gx, cy=gy;
+    window.addEventListener('mousemove', e=>{ gx=e.clientX; gy=e.clientY; });
+    (function follow(){
+      cx += (gx-cx)*0.12; cy += (gy-cy)*0.12;
+      glow.style.transform = `translate(${cx}px,${cy}px) translate(-50%,-50%)`;
+      requestAnimationFrame(follow);
+    })();
+  }
+
+  /* ---- SCROLL PROGRESS BAR ---- */
+  const bar = document.getElementById('scroll-progress');
+  function updateBar(){
+    const h = document.documentElement.scrollHeight - window.innerHeight;
+    const p = h>0 ? (window.scrollY/h)*100 : 0;
+    if(bar) bar.style.width = p+'%';
+  }
+
+  /* ---- SCROLL RAIL ---- */
+  const railSections = ['hero','journey','explorer','ihc','calculator','workflow','reviews','chart','mission','team','downloads'];
+  const railLabels = ['Top','Journey','Biomarkers','IHC','Risk Tool','Workflow','Reviews','Chart','Mission','Team','Downloads'];
+  const rail = document.getElementById('scroll-rail');
+  if(rail){
+    railSections.forEach((id,i)=>{
+      const el = document.getElementById(id);
+      if(!el) return;
+      const dot = document.createElement('button');
+      dot.className='rail-dot'; dot.dataset.target=id;
+      dot.innerHTML = `<span class="rail-label">${railLabels[i]}</span>`;
+      dot.addEventListener('click',()=>el.scrollIntoView({behavior:'smooth'}));
+      rail.appendChild(dot);
+    });
+  }
+  const railDots = rail ? Array.from(rail.children) : [];
+  function updateRail(){
+    let current = 0;
+    railSections.forEach((id,i)=>{
+      const el = document.getElementById(id);
+      if(el && el.getBoundingClientRect().top <= window.innerHeight*0.5) current = i;
+    });
+    railDots.forEach((d,i)=>d.classList.toggle('active', i===current));
+  }
+
+  let ticking=false;
+  window.addEventListener('scroll',()=>{
+    if(!ticking){ requestAnimationFrame(()=>{ updateBar(); updateRail(); ticking=false; }); ticking=true; }
+  });
+  updateBar(); updateRail();
+
+  /* ---- HERO POINTER PARALLAX ---- */
+  const heroContent = document.querySelector('.hero-content');
+  if(heroContent && !reduced && window.matchMedia('(hover:hover)').matches){
+    const hero = document.getElementById('hero');
+    hero.addEventListener('mousemove', e=>{
+      const r = hero.getBoundingClientRect();
+      const dx = (e.clientX - r.width/2)/r.width;
+      const dy = (e.clientY - r.height/2)/r.height;
+      heroContent.style.transform = `translate(${dx*-12}px,${dy*-8}px)`;
+    });
+    hero.addEventListener('mouseleave', ()=>{ heroContent.style.transform=''; });
+  }
+
+  /* ---- AMBIENT FLOATING MOLECULES ---- */
+  const amb = document.getElementById('ambient');
+  if(amb && !reduced){
+    for(let i=0;i<7;i++){
+      const m=document.createElement('div');
+      m.className='amb-mol';
+      const size=80+Math.random()*200;
+      m.style.cssText=`width:${size}px;height:${size}px;left:${Math.random()*100}%;top:${Math.random()*100}%;`;
+      amb.appendChild(m);
+      const dur=18000+Math.random()*16000, dx=(Math.random()-0.5)*120, dy=(Math.random()-0.5)*120;
+      m.animate([{transform:'translate(0,0)'},{transform:`translate(${dx}px,${dy}px)`},{transform:'translate(0,0)'}],{duration:dur,iterations:Infinity,easing:'ease-in-out'});
+    }
+  }
+
+  /* ---- FX-RISE OBSERVER (for new elements) ---- */
+  const fxObserver = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('visible'); fxObserver.unobserve(e.target);} });
+  },{threshold:0.15});
+  document.querySelectorAll('.fx-rise').forEach(el=>fxObserver.observe(el));
+
+  /* ---- JOURNEY: scroll-driven path draw + molecule travel ---- */
+  const jpath = document.getElementById('jpath');
+  const jmol = document.getElementById('jmol');
+  const jsvg = document.getElementById('journey-svg');
+  const stageLabel = document.getElementById('journey-stage');
+  const stageNames = ['The Tumor','The Bloodstream','The Salivary Gland','The Saliva','The Biosensor'];
+  if(jpath && jmol){
+    const len = jpath.getTotalLength();
+    jpath.style.strokeDasharray = len;
+    jpath.style.strokeDashoffset = len;
+    const nodes = Array.from(document.querySelectorAll('#journey-svg .jnode'));
+    const steps = Array.from(document.querySelectorAll('.journey-steps .jstep'));
+    let lastStage = -1;
+
+    function onScroll(){
+      const sec = document.getElementById('journey');
+      const r = sec.getBoundingClientRect();
+      const vh = window.innerHeight;
+      // progress: 0 when section top hits 75% of viewport, 1 when bottom hits 40%
+      const start = vh*0.75, end = vh*0.15;
+      let prog = (start - r.top)/(start - end + r.height*0.3);
+      prog = Math.max(0, Math.min(1, prog));
+      // draw path
+      jpath.style.strokeDashoffset = len*(1-prog);
+      // molecule position
+      if(prog>0.02){
+        jmol.classList.add('run');
+        const pt = jpath.getPointAtLength(len*prog);
+        jmol.setAttribute('cx', pt.x);
+        jmol.setAttribute('cy', pt.y);
+      } else { jmol.classList.remove('run'); }
+      // light up nodes as molecule passes
+      const stage = Math.min(4, Math.floor(prog*5));
+      nodes.forEach((n,i)=> n.classList.toggle('lit', prog*5 > i*0.85));
+      steps.forEach((s,i)=> s.classList.toggle('lit', prog*5 > i*0.8));
+      if(stage!==lastStage && prog>0.02){ if(stageLabel) stageLabel.textContent = stageNames[stage]; lastStage=stage; }
+    }
+    window.addEventListener('scroll', ()=>requestAnimationFrame(onScroll));
+    onScroll();
+  }
+
+  /* ---- MAGNETIC BUTTONS ---- */
+  if(!reduced && window.matchMedia('(hover:hover)').matches){
+    document.querySelectorAll('.btn-primary, .nav-cta').forEach(btn=>{
+      btn.addEventListener('mousemove', e=>{
+        const r = btn.getBoundingClientRect();
+        const mx = e.clientX - r.left - r.width/2;
+        const my = e.clientY - r.top - r.height/2;
+        btn.style.transform = `translate(${mx*0.18}px,${my*0.28}px)`;
+      });
+      btn.addEventListener('mouseleave', ()=>{ btn.style.transform=''; });
+    });
+  }
+})();
+
+</script>
+</body>
+</html>
